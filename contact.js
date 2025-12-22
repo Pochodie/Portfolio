@@ -11,6 +11,14 @@ const message = document.getElementById('message');
 const submitButton = document.getElementById('submitButton');
 const clearButton = document.getElementById('clearButton');
 
+// Validate name
+
+function validateName() {
+    const letters = /^\p{L}+$/u;
+    const name = firstName.value + lastName.value;
+    return letters.test(name);
+}
+
 // Check that it works!
 
 contactForm.addEventListener('submit', function (event) {
@@ -18,5 +26,7 @@ contactForm.addEventListener('submit', function (event) {
 })
 
 submitButton.addEventListener('click', function () {
-    console.log(`${firstName.value}\n${lastName.value}\n${email.value}\n${phoneNumber.value}\n${subject.value}\n${message.value}`);
+    console.log(validateName());
+    //console.log(`${firstName.value}\n${lastName.value}\n${email.value}\n${phoneNumber.value}\n${subject.value}\n${message.value}`);
 });
+
