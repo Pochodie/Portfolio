@@ -7,7 +7,6 @@ const email = document.getElementById('email');
 const phoneNumber = document.getElementById('phoneNumber');
 const subject = document.getElementById('subject');
 const message = document.getElementById('message');
-
 const submitButton = document.getElementById('submitButton');
 const clearButton = document.getElementById('clearButton');
 
@@ -19,14 +18,19 @@ function validateName() {
     return letters.test(name);
 }
 
-// Check that it works!
+// Validate email
+
+function validateEmail() {
+    //Standard RegEx for email addresses.
+    const validDomain = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    return validDomain.test(email.value);
+}
 
 contactForm.addEventListener('submit', function (event) {
     event.preventDefault();
 })
 
 submitButton.addEventListener('click', function () {
-    console.log(validateName());
-    //console.log(`${firstName.value}\n${lastName.value}\n${email.value}\n${phoneNumber.value}\n${subject.value}\n${message.value}`);
+    console.log(validateEmail());
 });
 
