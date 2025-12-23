@@ -12,9 +12,8 @@ const clearButton = document.getElementById('clearButton');
 
 // Validate name
 
-function validateName() {
+function validateName(name) {
     const letters = /^\p{L}+$/u;
-    const name = firstName.value + lastName.value;
     return letters.test(name);
 }
 
@@ -26,11 +25,25 @@ function validateEmail() {
     return validDomain.test(email.value);
 }
 
+function showError(element, numberOfChild) {
+    const displayError = document.querySelector(`.form-main-container div:nth-child(${numberOfChild}) small`);
+    element.style.border = '2px solid var(--red-color)';
+    displayError.classList.add('show-error');
+}
+
+function clearError(element, numberOfChild) {
+    const displayError = document.querySelector(`.form-main-container div:nth-child(${numberOfChild}) small`);
+    element.style.border = '2px solid green';
+    displayError.classList.remove('show-error');
+}
+
 contactForm.addEventListener('submit', function (event) {
     event.preventDefault();
-})
+});
 
 submitButton.addEventListener('click', function () {
-    console.log(validateEmail());
+    validateName(firstName.value) ? clearError(firstName, 1) : showError(firstName, 1);
+    validateName(lastName.value) ? clearError(lastName, 2) : showError(lastName, 2);
+    validateEmail() ? clearError(email, 3) : showError(email, 3);
 });
 
