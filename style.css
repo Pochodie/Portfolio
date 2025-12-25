@@ -442,6 +442,19 @@ nav {
   .show-error {
     opacity: 1;
     transition: opacity 300ms;
+     }
+
+  input.neutral {
+    border: 2px solid #ccc;
+  }
+
+  input.success {
+    border: 2px solid green;
+  }
+
+  input.error {
+    border: 2px solid var(--red-color);
+
   }
 
   input:focus {
@@ -467,6 +480,7 @@ nav {
     max-width: 12rem;
   }
 
+  
   div:nth-child(2) input {
     max-width: 12rem;
   }
