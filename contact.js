@@ -18,14 +18,18 @@ phoneNumber.childIndex = 4;
 subject.childIndex = 5;
 message.childIndex = 6;
 
-const lettersOnlyString = 'Letters only.';
+const lettersOnlyString = 'Invalid characters.';
 const enterNameString = 'Enter a name.';
 const validEmailString = 'Enter a valid email address.';
 const enterEmailString = 'Enter an email address.'
+const enterPhoneNumberString = 'Enter a phone number';
+const validPhoneNumberString = 'Enter a valid phone number';
+const messageCounterString = ' / 20 characters.'
+
+const messageMinimumCharacters = 20;
 // To determine whether all form elements are filled correctly
 let validForm = 0;
-
-// Validate name
+let formData = null;
 
 function validateName(element, validateEmpty = false) {
 
@@ -39,14 +43,14 @@ function validateName(element, validateEmpty = false) {
     else {
         displayError.innerHTML = lettersOnlyString;
     }
-    const letters = /^[\p{L} -']+$/u;
+    
+    const letters = /^[\p{L}' -]+$/u;
+    console.log(element.value);
     return letters.test(element.value);
 }
 
-// Validate email
-
 function validateEmail(validateEmpty = false) {
-    //Standard RegEx for email addresses.
+    // Standard RegEx for email addresses.
     const validDomain = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
     const displayError = document.querySelector(`.form-main-container div:nth-child(${email.childIndex}) small`);
@@ -70,13 +74,40 @@ function validateEmail(validateEmpty = false) {
     return validDomain.test(email.value);
 }
 
-function validatePhoneNumber() {
+function validatePhoneNumber(validateEmpty = false) {
+    // Standard RexEx for phone numbers.
     const validNumbers = /^\+?[0-9 ]+$/;
+    const displayError = document.querySelector(`.form-main-container div:nth-child(${phoneNumber.childIndex}) small`);
+
+
+    if (validateEmpty && phoneNumber.value.length === 0) {
+        return true;
+    }
+    if (validateEmpty && !validNumbers.test(phoneNumber.value)) {
+        displayError.innerHTML = validPhoneNumberString;
+        return false;
+    }
+
+    if (!validateEmpty && phoneNumber.value.length === 0) {
+        displayError.innerHTML = enterPhoneNumberString;
+    }
+    else if (!validateEmpty) {
+        displayError.innerHTML = validPhoneNumberString;
+    }
+
     return validNumbers.test(phoneNumber.value);
 }
 
 function validateMessage() {
-    return message.value.length > 20;
+    const numberOfCharacters = message.value.replace(/\s+/g, "");
+    const displayError = document.querySelector(`.form-main-container div:nth-child(${message.childIndex}) small`);
+    displayError.innerHTML = numberOfCharacters.length + messageCounterString;
+    
+    numberOfCharacters.length < messageMinimumCharacters ? displayError.classList.remove('success') : displayError.classList.add('success');
+    showError(message, message.childIndex);
+    
+    minimumCharacters = numberOfCharacters.length >= messageMinimumCharacters;
+    return minimumCharacters;
 }
 
 function showError(element, numberOfChild) {
@@ -100,17 +131,13 @@ function clearError(element, numberOfChild, validateEmpty = false) {
     element.classList.add('success');
     element.classList.remove('error');
     displayError.classList.remove('show-error');
-    validForm++;
+    if (!validateEmpty) validForm++;
 }
 
 function clearForm() {
-    formData = new FormData(firstName.value, lastName.value, email.value, subject.value, message.value);
-
-    firstName.value = '';
-    lastName.value = '';
-    email.value = '';
-    subject.value = '';
-    message.value = '';
+    formData = new PersonData(firstName.value, lastName.value, email.value, subject.value, message.value);
+    console.log('My formdata ' + formData.firstName);
+    contactForm.reset();
 }
 
 contactForm.addEventListener('submit', function (event) {
@@ -123,15 +150,21 @@ submitButton.addEventListener('click', function () {
     validateEmail() ? clearError(email, email.childIndex) : showError(email, email.childIndex);
     validatePhoneNumber() ? clearError(phoneNumber, phoneNumber.childIndex) : showError(phoneNumber, phoneNumber.childIndex);
     validateMessage() ? clearError(message, message.childIndex) : showError(message, message.childIndex);
-    if (validForm === 4) clearForm();
+
+    if (validForm === 5) {
+        clearForm();
+        console.log(`Thank you ${formData.firstName}!`);
+    }
     validForm = 0;
 });
 
 firstName.addEventListener('blur', function () { validateName(this, true) ? clearError(this, firstName.childIndex, true) : showError(this, firstName.childIndex) });
 lastName.addEventListener('blur', function () { validateName(this, true) ? clearError(this, lastName.childIndex, true) : showError(this, lastName.childIndex) });
 email.addEventListener('blur', function () { validateEmail(true) ? clearError(this, email.childIndex, true) : showError(this, email.childIndex) });
+phoneNumber.addEventListener('blur', function () { validatePhoneNumber(true) ? clearError(this, phoneNumber.childIndex, true) : showError(this, phoneNumber.childIndex) });
+message.addEventListener('input', function () { validateMessage() });
 
-class FormData {
+class PersonData {
     constructor(firstName, lastName, email, subject, message) {
         this.firstName = firstName;
         this.lastName = lastName;

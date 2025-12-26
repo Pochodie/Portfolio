@@ -476,6 +476,15 @@ nav {
     caret-color: var(--red-color);
   }
 
+  textarea:focus {
+    outline: none;
+    border: 2px solid blue;
+  }
+
+  textarea.success {
+    color: green;
+  }
+
   div:nth-child(1) input {
     max-width: 12rem;
   }
@@ -498,6 +507,10 @@ nav {
   div:nth-child(5) input {
     width: 100%;
     max-width: 100%;
+  }
+
+  div:nth-child(6) small.success {
+    color: green;
   }
 
   div:nth-child(7) input {
