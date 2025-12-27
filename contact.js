@@ -9,15 +9,18 @@ const subject = document.getElementById('subject');
 const message = document.getElementById('message');
 const submitButton = document.getElementById('submitButton');
 const clearButton = document.getElementById('clearButton');
+const successMessageContainer = document.getElementById('success-message');
 
-// The order of elements using nth:child in CSS
+// The order of elements using nth:child in CSS.
 firstName.childIndex = 1;
 lastName.childIndex = 2;
 email.childIndex = 3;
 phoneNumber.childIndex = 4;
 subject.childIndex = 5;
 message.childIndex = 6;
+successMessageContainer.childIndex = 8;
 
+// Contact form string constants.
 const lettersOnlyString = 'Invalid characters.';
 const enterNameString = 'Enter a name.';
 const validEmailString = 'Enter a valid email address.';
@@ -25,9 +28,11 @@ const enterEmailString = 'Enter an email address.'
 const enterPhoneNumberString = 'Enter a phone number';
 const validPhoneNumberString = 'Enter a valid phone number';
 const messageCounterString = ' / 20 characters.'
+const formSuccessMessageStart = 'Thank you ';
+const formSuccessMessageEnd = 'I will contact you soon!';
 
 const messageMinimumCharacters = 20;
-// To determine whether all form elements are filled correctly
+// To determine whether all form elements are filled correctly.
 let validForm = 0;
 let formData = null;
 
@@ -68,7 +73,6 @@ function validateEmail(validateEmpty = false) {
     }
     else if (!validateEmpty) {
         displayError.innerHTML = validEmailString;
-        console.log('WHy is this running');
     }
 
     return validDomain.test(email.value);
@@ -106,7 +110,10 @@ function validateMessage() {
     numberOfCharacters.length < messageMinimumCharacters ? displayError.classList.remove('success') : displayError.classList.add('success');
     showError(message, message.childIndex);
     
+    if (numberOfCharacters.length === 0) clearError(message, message.childIndex, true);
+
     minimumCharacters = numberOfCharacters.length >= messageMinimumCharacters;
+
     return minimumCharacters;
 }
 
@@ -152,9 +159,12 @@ submitButton.addEventListener('click', function () {
     validateMessage() ? clearError(message, message.childIndex) : showError(message, message.childIndex);
 
     if (validForm === 5) {
+        const successMessage = document.querySelector(`.form-main-container div:nth-child(${successMessageContainer.childIndex}) small`);
+        successMessage.innerHTML = `${formSuccessMessageStart} ${firstName.value}! ${formSuccessMessageEnd}`;
+        successMessage.classList.add('show-error');
+        setTimeout(() => {successMessage.classList.remove('show-error')}, 3000);
         clearForm();
-        console.log(`Thank you ${formData.firstName}!`);
-    }
+        }
     validForm = 0;
 });
 

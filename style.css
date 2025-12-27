@@ -414,9 +414,9 @@ nav {
 
 .form-main-container {
   display: grid;
-  width: 25rem;
+  width: 26rem;
   gap: 0 2rem;
-
+  
   label {
     display: block;
     margin-bottom: 0.4rem;
@@ -431,17 +431,18 @@ nav {
     border-radius: 5px;
     border: 2px solid #ccc;
     caret-color: var(--red-color);
+    outline: none;
   }
 
   small {
     color: var(--red-color);
     opacity: 0;
-    transition: opacity 300ms;
+    transition: opacity 500ms;
   }
 
   .show-error {
     opacity: 1;
-    transition: opacity 300ms;
+    transition: opacity 500ms;
      }
 
   input.neutral {
@@ -458,7 +459,6 @@ nav {
   }
 
   input:focus {
-    outline: none;
     border: 2px solid blue;
   }
 
@@ -472,17 +472,23 @@ nav {
     background-color: var(--white-color);
     color: var(--black-color);
     border-radius: 5px;
-    border: 1px solid grey;
+    border: 2px solid #ccc;
     caret-color: var(--red-color);
+    outline: none;
   }
 
-  textarea:focus {
+  select {
+    border-radius: 5px;
+    border: 2px solid #ccc;
     outline: none;
+    
+  }
+
+  select:focus {
     border: 2px solid blue;
   }
-
-  textarea.success {
-    color: green;
+  textarea:focus {
+    border: 2px solid blue;
   }
 
   div:nth-child(1) input {
@@ -504,8 +510,9 @@ nav {
     max-width: 100%;
   }
 
-  div:nth-child(5) input {
+  div:nth-child(5) select {
     width: 100%;
+    padding: 0.5rem 0;
     max-width: 100%;
   }
 
@@ -513,11 +520,26 @@ nav {
     color: green;
   }
 
-  div:nth-child(7) input {
-    width: 8rem;
-    max-width: 100%;
+  button {
+    border-radius: 5px;
+    font-family: inherit;
   }
+
+  .success-container {
+    margin: 1rem 0;
+    width: 100%;
+    max-width: 100%;
+    grid-column: 1/3;
+    
+    small {
+      color: green;
+      font-size: 1.5rem;
+    }
+  }
+  
+  
 }
+
 
 /* Footer section */
 
