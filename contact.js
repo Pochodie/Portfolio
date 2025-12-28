@@ -18,6 +18,8 @@ email.childIndex = 3;
 phoneNumber.childIndex = 4;
 subject.childIndex = 5;
 message.childIndex = 6;
+submitButton.childIndex = 7;
+clearButton.childIndex = 7;
 successMessageContainer.childIndex = 8;
 
 // Contact form string constants.
@@ -108,24 +110,25 @@ function validateMessage() {
     displayError.innerHTML = numberOfCharacters.length + messageCounterString;
     
     numberOfCharacters.length < messageMinimumCharacters ? displayError.classList.remove('success') : displayError.classList.add('success');
-    showError(message, message.childIndex);
+    showError(message);
     
-    if (numberOfCharacters.length === 0) clearError(message, message.childIndex, true);
+    if (numberOfCharacters.length === 0) clearError(message, true);
 
     minimumCharacters = numberOfCharacters.length >= messageMinimumCharacters;
 
     return minimumCharacters;
 }
 
-function showError(element, numberOfChild) {
-    const displayError = document.querySelector(`.form-main-container div:nth-child(${numberOfChild}) small`);
+function showError(element) {
+    const displayError = document.querySelector(`.form-main-container div:nth-child(${element.childIndex}) small`);
 
     displayError.classList.add('show-error');
     element.classList.add('error');
 }
 
-function clearError(element, numberOfChild, validateEmpty = false) {
-    const displayError = document.querySelector(`.form-main-container div:nth-child(${numberOfChild}) small`);
+
+function clearError(element, validateEmpty = false) {
+    const displayError = document.querySelector(`.form-main-container div:nth-child(${element.childIndex}) small`);
 
     if (validateEmpty && element.value.length === 0) {
         element.classList.add('neutral');
@@ -141,10 +144,21 @@ function clearError(element, numberOfChild, validateEmpty = false) {
     if (!validateEmpty) validForm++;
 }
 
-function clearForm() {
+function clearForm(saveData = false) {
+    
+    if (saveData) {
     formData = new PersonData(firstName.value, lastName.value, email.value, subject.value, message.value);
-    console.log('My formdata ' + formData.firstName);
     contactForm.reset();
+    }
+
+    else {
+
+    document.querySelectorAll('.form-main-container *').forEach(el => { el.className = ''; });
+
+    contactForm.className = 'form-main-container';
+    successMessageContainer.className = 'success-message-container';
+    contactForm.reset();
+    }
 }
 
 contactForm.addEventListener('submit', function (event) {
@@ -152,26 +166,30 @@ contactForm.addEventListener('submit', function (event) {
 });
 
 submitButton.addEventListener('click', function () {
-    validateName(firstName) ? clearError(firstName, firstName.childIndex) : showError(firstName, firstName.childIndex);
-    validateName(lastName) ? clearError(lastName, lastName.childIndex) : showError(lastName, lastName.childIndex);
-    validateEmail() ? clearError(email, email.childIndex) : showError(email, email.childIndex);
-    validatePhoneNumber() ? clearError(phoneNumber, phoneNumber.childIndex) : showError(phoneNumber, phoneNumber.childIndex);
-    validateMessage() ? clearError(message, message.childIndex) : showError(message, message.childIndex);
+    validateName(firstName) ? clearError(firstName) : showError(firstName);
+    validateName(lastName) ? clearError(lastName) : showError(lastName);
+    validateEmail() ? clearError(email) : showError(email);
+    validatePhoneNumber() ? clearError(phoneNumber) : showError(phoneNumber);
+    validateMessage() ? clearError(message) : showError(message);
 
+    // If all the inputs and the textarea are filled correctly, validForm will be 5.
     if (validForm === 5) {
         const successMessage = document.querySelector(`.form-main-container div:nth-child(${successMessageContainer.childIndex}) small`);
         successMessage.innerHTML = `${formSuccessMessageStart} ${firstName.value}! ${formSuccessMessageEnd}`;
         successMessage.classList.add('show-error');
         setTimeout(() => {successMessage.classList.remove('show-error')}, 3000);
-        clearForm();
+        clearForm(true);
         }
+        
     validForm = 0;
 });
 
-firstName.addEventListener('blur', function () { validateName(this, true) ? clearError(this, firstName.childIndex, true) : showError(this, firstName.childIndex) });
-lastName.addEventListener('blur', function () { validateName(this, true) ? clearError(this, lastName.childIndex, true) : showError(this, lastName.childIndex) });
-email.addEventListener('blur', function () { validateEmail(true) ? clearError(this, email.childIndex, true) : showError(this, email.childIndex) });
-phoneNumber.addEventListener('blur', function () { validatePhoneNumber(true) ? clearError(this, phoneNumber.childIndex, true) : showError(this, phoneNumber.childIndex) });
+clearButton.addEventListener('click', () => clearForm());
+
+firstName.addEventListener('blur', function () { validateName(this, true) ? clearError(this, true) : showError(this) });
+lastName.addEventListener('blur', function () { validateName(this, true) ? clearError(this, true) : showError(this) });
+email.addEventListener('blur', function () { validateEmail(true) ? clearError(this, true) : showError(this) });
+phoneNumber.addEventListener('blur', function () { validatePhoneNumber(true) ? clearError(this, true) : showError(this) });
 message.addEventListener('input', function () { validateMessage() });
 
 class PersonData {
