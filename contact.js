@@ -1,5 +1,4 @@
 // Get references to all form elements.
-
 const contactForm = document.getElementById('contactForm');
 const firstName = document.getElementById('firstName');
 const lastName = document.getElementById('lastName');
@@ -34,8 +33,7 @@ const formSuccessMessageStart = 'Thank you ';
 const formSuccessMessageEnd = 'I will contact you soon!';
 
 const messageMinimumCharacters = 20;
-// To determine whether all form elements are filled correctly.
-let validForm = 0;
+
 let formData = null;
 
 function validateName(element, validateEmpty = false) {
@@ -50,9 +48,9 @@ function validateName(element, validateEmpty = false) {
     else {
         displayError.innerHTML = lettersOnlyString;
     }
-    
+
     const letters = /^[\p{L}' -]+$/u;
-    console.log(element.value);
+
     return letters.test(element.value);
 }
 
@@ -104,14 +102,28 @@ function validatePhoneNumber(validateEmpty = false) {
     return validNumbers.test(phoneNumber.value);
 }
 
-function validateMessage() {
+function validateMessage(validateEmpty = false) {
     const numberOfCharacters = message.value.replace(/\s+/g, "");
+
+
+    if (validateEmpty && numberOfCharacters.length === 0) {
+        return true;
+    }
+
+    if (validateEmpty && numberOfCharacters.length < 20) {
+        return false;
+    }
+
+
     const displayError = document.querySelector(`.form-main-container div:nth-child(${message.childIndex}) small`);
     displayError.innerHTML = numberOfCharacters.length + messageCounterString;
-    
+
     numberOfCharacters.length < messageMinimumCharacters ? displayError.classList.remove('success') : displayError.classList.add('success');
-    showError(message);
-    
+    if (numberOfCharacters.length >= messageMinimumCharacters) clearError(message, true, message.classList.contains('error'));
+    else showError(message, message.classList.contains('success'));
+
+    showError(message, message.classList.contains('error'));
+
     if (numberOfCharacters.length === 0) clearError(message, true);
 
     minimumCharacters = numberOfCharacters.length >= messageMinimumCharacters;
@@ -119,15 +131,15 @@ function validateMessage() {
     return minimumCharacters;
 }
 
-function showError(element) {
+function showError(element, changeBorder = true) {
     const displayError = document.querySelector(`.form-main-container div:nth-child(${element.childIndex}) small`);
 
     displayError.classList.add('show-error');
-    element.classList.add('error');
+    if (changeBorder) element.classList.add('error');
 }
 
 
-function clearError(element, validateEmpty = false) {
+function clearError(element, validateEmpty = false, changeBorder = true) {
     const displayError = document.querySelector(`.form-main-container div:nth-child(${element.childIndex}) small`);
 
     if (validateEmpty && element.value.length === 0) {
@@ -138,26 +150,31 @@ function clearError(element, validateEmpty = false) {
         return;
     }
 
-    element.classList.add('success');
-    element.classList.remove('error');
+    if (changeBorder) {
+        element.classList.add('success');
+        element.classList.remove('error');
+    }
+
     displayError.classList.remove('show-error');
-    if (!validateEmpty) validForm++;
+
 }
 
 function clearForm(saveData = false) {
-    
+
     if (saveData) {
-    formData = new PersonData(firstName.value, lastName.value, email.value, subject.value, message.value);
-    contactForm.reset();
+        formData = new PersonData(firstName.value, lastName.value, email.value, subject.value, message.value);
+        document.querySelectorAll('.form-main-container *').forEach(el => { el.classList.remove('success') });
+        contactForm.reset();
     }
 
     else {
 
-    document.querySelectorAll('.form-main-container *').forEach(el => { el.className = ''; });
+        document.querySelectorAll('.form-main-container *').forEach(el => { el.className = ''; });
 
-    contactForm.className = 'form-main-container';
-    successMessageContainer.className = 'success-message-container';
-    contactForm.reset();
+        contactForm.className = 'form-main-container';
+        successMessageContainer.className = 'success-message-container';
+        contactForm.reset();
+
     }
 }
 
@@ -166,22 +183,46 @@ contactForm.addEventListener('submit', function (event) {
 });
 
 submitButton.addEventListener('click', function () {
-    validateName(firstName) ? clearError(firstName) : showError(firstName);
-    validateName(lastName) ? clearError(lastName) : showError(lastName);
-    validateEmail() ? clearError(email) : showError(email);
-    validatePhoneNumber() ? clearError(phoneNumber) : showError(phoneNumber);
-    validateMessage() ? clearError(message) : showError(message);
+    let validForm = 0;
 
-    // If all the inputs and the textarea are filled correctly, validForm will be 5.
+    if (validateName(firstName)) {
+        clearError(firstName)
+        validForm++
+    }
+    else showError(firstName);
+
+    if (validateName(lastName)) {
+        clearError(lastName)
+        validForm++
+    }
+    else showError(lastName);
+
+    if (validateEmail()) {
+        clearError(email)
+        validForm++
+    }
+    else showError(email);
+
+    if (validatePhoneNumber()) {
+        clearError(phoneNumber)
+        validForm++
+    }
+    else showError(phoneNumber);
+
+    if (validateMessage()) {
+        clearError(message)
+        validForm++
+    }
+    else showError(message);
+
     if (validForm === 5) {
         const successMessage = document.querySelector(`.form-main-container div:nth-child(${successMessageContainer.childIndex}) small`);
         successMessage.innerHTML = `${formSuccessMessageStart} ${firstName.value}! ${formSuccessMessageEnd}`;
         successMessage.classList.add('show-error');
-        setTimeout(() => {successMessage.classList.remove('show-error')}, 3000);
+
+        setTimeout(() => { successMessage.classList.remove('show-error') }, 3000);
         clearForm(true);
-        }
-        
-    validForm = 0;
+    }
 });
 
 clearButton.addEventListener('click', () => clearForm());
@@ -190,6 +231,7 @@ firstName.addEventListener('blur', function () { validateName(this, true) ? clea
 lastName.addEventListener('blur', function () { validateName(this, true) ? clearError(this, true) : showError(this) });
 email.addEventListener('blur', function () { validateEmail(true) ? clearError(this, true) : showError(this) });
 phoneNumber.addEventListener('blur', function () { validatePhoneNumber(true) ? clearError(this, true) : showError(this) });
+message.addEventListener('blur', function () { validateMessage(true) ? clearError(this, true) : showError(this) });
 message.addEventListener('input', function () { validateMessage() });
 
 class PersonData {
