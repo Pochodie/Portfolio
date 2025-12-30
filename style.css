@@ -420,6 +420,28 @@ nav {
   }
 }
 
+.filter-button-container {
+  margin-bottom: 2rem;
+}
+
+.filter-button {
+  border-radius: 5px;
+  font-family: inherit;
+  color: var(--black-color);
+  background-color: var(--white-color);
+  outline: none;
+  border: 2px solid #ccc;
+  padding: 0.2rem 1rem;
+}
+
+.filter-button:hover {
+  color: var(--red-color);
+}
+
+.filter-button:focus {
+  border: 2px solid #00f;
+}
+
 /* Music section */
 
 .audio-main-container {

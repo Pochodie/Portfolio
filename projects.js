@@ -14,7 +14,7 @@ const projects = [
         description: "A scoreboard for snooker",
         category: "Web Development",
         technologies: ["HTML", "CSS", "TypeScript"],
-        image: "shopping.png",
+        image: "assets/images/projects/snooker.jpg",
         link: "https://example.com"
     },
     {

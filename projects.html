@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="projects.js" defer></script>
 </head>
 
 <body id="top-of-page">
@@ -37,6 +38,12 @@
 
     <main class="main-container projects-main-container">
         <h1>Projects</h1>
+        <div class="filter-button-container">
+            <button id="button1" class="filter-button active" data-category="all">All Projects</button>
+            <button id="button2" class="filter-button" data-category="Web Development">Web Development</button>
+            <button id="button3" class="filter-button" data-category="Music">Music</button>
+            <button id="button4" class="filter-button" data-category="School Projects">School Projects</button>
+        </div>
 
         <div id="project-cards-container" class="project-cards-container">
             <div id="p1" class="project-card"></div>
