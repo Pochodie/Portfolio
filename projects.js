@@ -86,8 +86,9 @@ function generateCards(category) {
 
             projectDiv.appendChild(image);
             projectDiv.appendChild(h3);
-            projectDiv.appendChild(description);
             projectDiv.appendChild(labelCategory);
+            projectDiv.appendChild(description);
+            
             projectDiv.appendChild(link);
             mainContainer.appendChild(projectDiv);
             numberOfCards++;
