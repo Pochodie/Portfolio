@@ -2,10 +2,10 @@ const projects = [
     {
         id: 1,
         title: "Portfolio Website",
-        description: "My personal portfolio built with HTML, CSS, and JavaScript",
+        description: "My personal portfolio",
         category: "Web Development",
         technologies: ["HTML", "CSS", "JavaScript"],
-        image: "assets/images/projects/snooker.jpg",
+        image: "assets/images/projects/portfolio_tn.jpg",
         link: "https://example.com"
     },
     {
@@ -39,8 +39,8 @@ const projects = [
         id: 5,
         title: "ATC Simulator",
         description: "Video game",
-        category: "Music",
-        technologies: ["HTML", "CSS", "JavaScript"],
+        category: "Development",
+        technologies: ["C#", ".NET 8.0", "MonoGame"],
         image: 'assets/images/projects/atcsimulator_gameplay_tn.jpg',
         link: "https://example.com"
     },
@@ -57,6 +57,16 @@ const projects = [
 
 ];
 
+const filterButtonAll = document.getElementById('all');
+const filterButtonMusic = document.getElementById('music');
+const filterButtonWebDevelopment = document.getElementById('web-development');
+const filterButtonSchoolProjects = document.getElementById('school-projects');
+
+filterButtonAll.addEventListener('click', () => { generateCards('All') });
+filterButtonMusic.addEventListener('click', () => { generateCards('Music') });
+filterButtonWebDevelopment.addEventListener('click', () => { generateCards('Web Development') });
+filterButtonSchoolProjects.addEventListener('click', () => { generateCards('School Projects') });
+
 function generateCards(category) {
 
     const mainContainer = document.getElementById('project-cards-container');
@@ -66,7 +76,7 @@ function generateCards(category) {
     projects.forEach(element => {
 
 
-        if (element.category === category || category === 'all') {
+        if (element.category === category || category === 'All') {
 
             const projectDiv = document.createElement('div');
             projectDiv.className = 'project-card';
@@ -88,7 +98,7 @@ function generateCards(category) {
             projectDiv.appendChild(h3);
             projectDiv.appendChild(labelCategory);
             projectDiv.appendChild(description);
-            
+
             projectDiv.appendChild(link);
             mainContainer.appendChild(projectDiv);
             numberOfCards++;
@@ -97,4 +107,4 @@ function generateCards(category) {
 
 }
 
-generateCards('all');
+generateCards('All');

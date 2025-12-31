@@ -413,12 +413,11 @@ nav {
   align-items: center;
   justify-content: flex-start;
   border-radius: 5px;
-  border: 1px dashed grey;
+  border: 1px solid var(--white-color);
   text-align: center;
 
-
   img {
-margin-top: 1rem;
+    margin-top: 1rem;
   }
 
   h3 {
@@ -430,7 +429,7 @@ margin-top: 1rem;
     padding: 0 2rem;
     font-size: 1rem;
   }
-  
+
   label {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
@@ -459,7 +458,8 @@ margin-top: 1rem;
   background-color: var(--white-color);
   outline: none;
   border: 2px solid #ccc;
-  padding: 0.2rem 1rem;
+  margin: 0 0.2rem 0.2rem 0.3rem;
+  padding: 0.2rem 1.2rem;
 }
 
 .filter-button:hover {
