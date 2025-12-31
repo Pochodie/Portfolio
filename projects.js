@@ -23,7 +23,7 @@ const projects = [
         description: "Practice scales",
         category: "Music",
         technologies: ["notation", "chords"],
-        image: "assets/images/projects/snooker.jpg",
+        image: "assets/images/music.jpg",
         link: "https://example.com"
     },
     {
@@ -41,7 +41,7 @@ const projects = [
         description: "Video game",
         category: "Music",
         technologies: ["HTML", "CSS", "JavaScript"],
-        image: "assets/images/projects/snooker.jpg",
+        image: 'assets/images/projects/atcsimulator_gameplay_tn.jpg',
         link: "https://example.com"
     },
     {
@@ -50,7 +50,7 @@ const projects = [
         description: "Composing a piano concerto.",
         category: "Music",
         technologies: ["Notation", "Dorico", "Reaper"],
-        image: "assets/images/projects/snooker.jpg",
+        image: "assets/images/projects/pianoconcerto_tn.jpg",
         link: "https://example.com"
     }
 

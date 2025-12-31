@@ -442,6 +442,12 @@ margin-top: 1rem;
   }
 }
 
+.project-card:hover {
+  border: 1px solid var(--red-color);
+  transform: scale(1.05);
+  transition: transform 200ms;
+}
+
 .filter-button-container {
   margin-bottom: 2rem;
 }
