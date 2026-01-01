@@ -441,6 +441,32 @@ nav {
   }
 }
 
+@keyframes project-card-fade-in {
+  from {
+    filter: opacity(0);
+  }
+  to {
+    filter: opacity(1);
+  }
+}
+
+@keyframes project-card-fade-out {
+  from {
+    filter: opacity(1);
+  }
+  to {
+    filter: opacity(0);
+  }
+}
+
+.project-card.fadein {
+  animation: project-card-fade-in 250ms forwards;
+}
+
+.project-card.fadeout {
+  animation: project-card-fade-out 250ms forwards;
+}
+
 .project-card:hover {
   border: 1px solid var(--red-color);
   transform: scale(1.05);
