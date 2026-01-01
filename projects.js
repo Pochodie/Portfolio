@@ -61,17 +61,29 @@ const filterButtonAll = document.getElementById('all');
 const filterButtonMusic = document.getElementById('music');
 const filterButtonWebDevelopment = document.getElementById('web-development');
 const filterButtonSchoolProjects = document.getElementById('school-projects');
+let previousSelectedFilterButton = filterButtonAll;
 
-filterButtonAll.addEventListener('click', () => { generateCards('All') });
-filterButtonMusic.addEventListener('click', () => { generateCards('Music') });
-filterButtonWebDevelopment.addEventListener('click', () => { generateCards('Web Development') });
-filterButtonSchoolProjects.addEventListener('click', () => { generateCards('School Projects') });
+filterButtonAll.addEventListener('click', (event) => { generateCards(event.target, 'All'); });
+filterButtonMusic.addEventListener('click', (event) => { generateCards(event.target, 'Music'); });
+filterButtonWebDevelopment.addEventListener('click', (event) => { generateCards(event.target, 'Web Development'); });
+filterButtonSchoolProjects.addEventListener('click', (event) => { generateCards(event.target, 'School Projects'); });
 
-function generateCards(category) {
+function selectActiveButton(element) {
+    if (element != previousSelectedFilterButton) {
+        previousSelectedFilterButton.classList.remove('active');
+        element.classList.add('active');
+        previousSelectedFilterButton = element;
+    }
+}
+
+function generateCards(sender, category) {
 
     const mainContainer = document.getElementById('project-cards-container');
     mainContainer.replaceChildren();
     let numberOfCards = 0;
+
+    selectActiveButton(sender);
+
 
     projects.forEach(element => {
 
@@ -107,4 +119,4 @@ function generateCards(category) {
 
 }
 
-generateCards('All');
+generateCards(filterButtonAll, 'All');
