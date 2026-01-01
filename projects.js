@@ -111,8 +111,8 @@ function generateCards(sender, category) {
                 const image = document.createElement('img');
                 const labelCategory = document.createElement('label');
                 const link = document.createElement('a');
-                link.href = element.link;
-                link.target = '_blank'
+                link.setAttribute('href', element.link);
+                link.setAttribute('target', '_blank');
                 link.textContent = element.link;
                 image.src = element.image;
                 image.style = 'width: 50%; object-fit: contain';
