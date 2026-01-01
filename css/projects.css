@@ -1,0 +1,156 @@
+/* Projects section */
+
+.projects-main-container {
+  h1 {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--red-color, red);
+  }
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
+.projects-image-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 16rem);
+
+  margin-bottom: 2rem;
+
+  figure {
+    margin-right: 1rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--red-color, red);
+    transition: transform 220ms linear;
+  }
+}
+
+.projects-challenge-solution {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+}
+
+.projects-challenge-solution h3 {
+  padding: 0 5rem 0 0;
+  font-size: 1.8rem;
+}
+
+.projects-challenge-solution p {
+  margin: 2 0 2rem;
+  padding: 0;
+}
+
+.projects-challenge-solution a {
+  color: var(--white-color);
+}
+
+.project-cards-container {
+  display: grid;
+  max-width: 60rem;
+  grid-template-columns: repeat(auto-fit, 150px);
+  gap: 10px;
+}
+
+.project-card {
+  width: 150px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 5px;
+  border: 1px solid var(--white-color);
+  text-align: center;
+
+  img {
+    margin-top: 1rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    margin: 1rem 0;
+  }
+
+  p {
+    padding: 0 2rem;
+    font-size: 1rem;
+  }
+
+  label {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: var(--white-color);
+    font-size: 1rem;
+  }
+}
+
+@keyframes project-card-fade-in {
+  from {
+    filter: opacity(0);
+  }
+  to {
+    filter: opacity(1);
+  }
+}
+
+@keyframes project-card-fade-out {
+  from {
+    filter: opacity(1);
+  }
+  to {
+    filter: opacity(0);
+  }
+}
+
+.project-card.fadein {
+  animation: project-card-fade-in 250ms forwards;
+}
+
+.project-card.fadeout {
+  animation: project-card-fade-out 250ms forwards;
+}
+
+.project-card:hover {
+  border: 1px solid var(--red-color);
+  transform: scale(1.05);
+  transition: transform 200ms;
+}
+
+.filter-button-container {
+  margin-bottom: 2rem;
+}
+
+.filter-button {
+  border-radius: 5px;
+  font-family: inherit;
+  color: var(--black-color);
+  background-color: var(--white-color);
+  outline: none;
+  border: 2px solid #ccc;
+  margin: 0 0.2rem 0.2rem 0.3rem;
+  padding: 0.2rem 1.2rem;
+}
+
+.filter-button:hover {
+  color: var(--red-color);
+}
+
+.filter-button:focus {
+  border: 2px solid #00f;
+}
+
+.filter-button.active {
+  color: var(--red-color);
+}
