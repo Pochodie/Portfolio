@@ -35,6 +35,7 @@ const formSuccessMessageEnd = 'I will contact you soon!';
 const messageMinimumCharacters = 20;
 
 let formData = null;
+let validateForm = false;
 
 function validateName(element, validateEmpty = false) {
 
@@ -168,7 +169,6 @@ function clearForm(saveData = false) {
     }
 
     else {
-
         document.querySelectorAll('.form-main-container *').forEach(el => { el.className = ''; });
 
         contactForm.className = 'form-main-container';
@@ -183,7 +183,12 @@ contactForm.addEventListener('submit', function (event) {
 });
 
 submitButton.addEventListener('click', function () {
+    validateForm = false;
+});
+
+submitButton.addEventListener('mousedown', function () {
     let validForm = 0;
+    validateForm = true;
 
     if (validateName(firstName)) {
         clearError(firstName)
@@ -213,7 +218,10 @@ submitButton.addEventListener('click', function () {
         clearError(message)
         validForm++
     }
-    else showError(message);
+    else {
+
+        showError(message);
+    }
 
     if (validForm === 5) {
         const successMessage = document.querySelector(`.form-main-container div:nth-child(${successMessageContainer.childIndex}) small`);
@@ -223,16 +231,39 @@ submitButton.addEventListener('click', function () {
         setTimeout(() => { successMessage.classList.remove('show-error') }, 3000);
         clearForm(true);
     }
+
 });
 
-clearButton.addEventListener('click', () => clearForm());
+clearButton.addEventListener('mousedown', () => clearForm());
 
-firstName.addEventListener('blur', function () { validateName(this, true) ? clearError(this, true) : showError(this) });
-lastName.addEventListener('blur', function () { validateName(this, true) ? clearError(this, true) : showError(this) });
-email.addEventListener('blur', function () { validateEmail(true) ? clearError(this, true) : showError(this) });
-phoneNumber.addEventListener('blur', function () { validatePhoneNumber(true) ? clearError(this, true) : showError(this) });
-message.addEventListener('blur', function () { validateMessage(true) ? clearError(this, true) : showError(this) });
+function blurValidateName(element) {
+    if (validateForm) return;
+    validateName(element, true) ? clearError(element, true) : showError(element)
+}
+
+function blurValidateEmail(element) {
+    if (validateForm) return;
+    validateEmail(true) ? clearError(element, true) : showError(element)
+}
+
+function blurValidatePhoneNumber(element) {
+    if (validateForm) return;
+    validatePhoneNumber(true) ? clearError(element, true) : showError(element)
+}
+
+function blurValidateMessage(element) {
+    if (validateForm) return;
+    validateMessage(true) ? clearError(element, true) : showError(element)
+}
+
+firstName.addEventListener('blur', (event) => blurValidateName(event.target));
+lastName.addEventListener('blur', (event) => blurValidateName(event.target));
+email.addEventListener('blur', (event) => blurValidateEmail(event.target));
+phoneNumber.addEventListener('blur', (event) => blurValidatePhoneNumber(event.target));
+message.addEventListener('blur', (event) => blurValidateMessage(event.target));
 message.addEventListener('input', function () { validateMessage() });
+
+
 
 class PersonData {
     constructor(firstName, lastName, email, subject, message) {
