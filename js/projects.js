@@ -2,7 +2,7 @@ const projects = [
     {
         id: 1,
         title: "Portfolio Website",
-        description: "My personal portfolio",
+        description: "My personal portfolio.",
         category: "Web Development",
         technologies: ["HTML", "CSS", "JavaScript"],
         image: "assets/images/projects/portfolio_tn.jpg",
@@ -12,7 +12,7 @@ const projects = [
     {
         id: 2,
         title: "Snooker scoreboard",
-        description: "A scoreboard for snooker",
+        description: "A scoreboard for snooker.",
         category: "Web Development",
         technologies: ["HTML", "CSS", "TypeScript"],
         image: "assets/images/projects/snooker.jpg",
@@ -22,7 +22,7 @@ const projects = [
     {
         id: 3,
         title: "Play piano",
-        description: "Practice scales",
+        description: "Practice Rachmaniniov.",
         category: "Music",
         technologies: ["notation", "chords"],
         image: "assets/images/music.jpg",
@@ -32,7 +32,7 @@ const projects = [
     {
         id: 4,
         title: "JavaScript",
-        description: "Make a dynamic website",
+        description: "Make a dynamic website.",
         category: "School Projects",
         technologies: ["HTML", "CSS", "JavaScript"],
         image: "assets/images/projects/snooker.jpg",
@@ -42,12 +42,11 @@ const projects = [
     {
         id: 5,
         title: "ATC Simulator",
-        description: "Video game",
+        description: "Video game.",
         category: "Development",
         technologies: ["C#", ".NET 8.0", "MonoGame"],
         image: 'assets/images/projects/atcsimulator_gameplay_tn.jpg',
         link: "https://example.com"
-
     },
     {
         id: 6,
