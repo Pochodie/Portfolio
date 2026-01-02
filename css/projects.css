@@ -60,6 +60,14 @@
   gap: 10px;
 }
 
+.project-cards-container.fadein {
+  animation: project-card-fade-in 250ms forwards;
+}
+
+.project-cards-container.fadeout {
+  animation: project-card-fade-out 250ms forwards;
+}
+
 .project-card {
   width: 150px;
   height: 200px;
@@ -94,6 +102,18 @@
     color: var(--white-color);
     font-size: 1rem;
   }
+}
+
+.projects-counter {
+  margin-bottom: 2rem;
+}
+
+.projects-counter.fadein {
+  animation: project-card-fade-in 250ms forwards;
+}
+
+.projects-counter.fadeout {
+  animation: project-card-fade-out 250ms forwards;
 }
 
 @keyframes project-card-fade-in {

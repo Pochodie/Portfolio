@@ -31,7 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--black-color, black);
-  background-image: url(assets/images/background.jpg);
+  background-image: url(../assets/images/background.jpg);
   min-height: 100vh;
 }
 

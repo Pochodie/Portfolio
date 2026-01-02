@@ -62,10 +62,16 @@ const projects = [
 
 ];
 
+const counterStringStart = 'Showing';
+const counterStringMiddle = 'of';
+const counterStringEnd = 'projects.'
+
 const filterButtonAll = document.getElementById('all');
 const filterButtonMusic = document.getElementById('music');
 const filterButtonWebDevelopment = document.getElementById('web-development');
 const filterButtonSchoolProjects = document.getElementById('school-projects');
+const projectsCounter = document.getElementById('projects-counter');
+
 let previousSelectedFilterButton = filterButtonAll;
 let firstLoad = true;
 
@@ -91,21 +97,31 @@ function generateCards(sender) {
     const category = sender.getAttribute('data-category');
 
     if (mainContainer.children.length > 0) {
-        Array.from(mainContainer.children).forEach(element => { element.classList.add('fadeout'); });
+        mainContainer.classList.remove('fadein');
+        projectsCounter.classList.remove('fadein');
+        mainContainer.classList.add('fadeout');
+        projectsCounter.classList.add('fadeout');
     }
-
 
     let numberOfCards = 0;
 
     setTimeout(() => {
         mainContainer.replaceChildren();
-        projects.forEach(element => {
 
+
+        projects.forEach(element => {
 
             if (element.category === category || category === 'All') {
 
                 const projectDiv = document.createElement('div');
-                firstLoad ? projectDiv.className = 'project-card' : projectDiv.className = 'project-card fadein';
+                if (!firstLoad) {
+                    mainContainer.classList.remove('fadeout');
+                    projectsCounter.classList.remove('fadeout');
+                    mainContainer.classList.add('fadein');
+                    projectsCounter.classList.add('fadein');
+                }
+
+                projectDiv.className = 'project-card';
                 const h3 = document.createElement('h3');
                 const description = document.createElement('p');
                 const image = document.createElement('img');
@@ -131,10 +147,13 @@ function generateCards(sender) {
                 numberOfCards++;
             }
         });
+
+        projectsCounter.textContent = `${counterStringStart} ${numberOfCards} ${counterStringMiddle} ${projects.length} ${counterStringEnd}`;
+
     }, firstLoad ? 0 : 250);
 
-    selectActiveButton(sender);
     firstLoad = false;
+    selectActiveButton(sender);
 }
 
 generateCards(filterButtonAll);
