@@ -99,6 +99,24 @@ projects.push(new Project(
     'https://example.com'
 ));
 
+projects.push(new Project(
+    'Music for ATC Simulator',
+    'Recording session.',
+    'Music',
+    ['Notation', 'Reaper'],
+    'assets/images/projects/atcmusic.jpg',
+    'https://example.com'
+));
+
+projects.push(new Project(
+    'Mathematics',
+    'Third assignment.',
+    'School Projects',
+    ['LaTeX', 'Calculator'],
+    'assets/images/projects/math.jpg',
+    'https://example.com'
+));
+
 
 
 function selectActiveButton(element) {
