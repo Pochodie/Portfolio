@@ -1,66 +1,19 @@
-const projects = [
-    {
-        id: 1,
-        title: "Portfolio Website",
-        description: "My personal portfolio.",
-        category: "Web Development",
-        technologies: ["HTML", "CSS", "JavaScript"],
-        image: "assets/images/projects/portfolio_tn.jpg",
-        link: "index.html"
+class Project {
+    static counter = 1;
 
-    },
-    {
-        id: 2,
-        title: "Snooker scoreboard",
-        description: "A scoreboard for snooker.",
-        category: "Web Development",
-        technologies: ["HTML", "CSS", "TypeScript"],
-        image: "assets/images/projects/snooker.jpg",
-        link: "https://example.com"
-
-    },
-    {
-        id: 3,
-        title: "Play piano",
-        description: "Practice Rachmaniniov.",
-        category: "Music",
-        technologies: ["notation", "chords"],
-        image: "assets/images/music.jpg",
-        link: "https://example.com"
-
-    },
-    {
-        id: 4,
-        title: "JavaScript",
-        description: "Make a dynamic website.",
-        category: "School Projects",
-        technologies: ["HTML", "CSS", "JavaScript"],
-        image: "assets/images/projects/snooker.jpg",
-        link: "https://example.com"
-
-    },
-    {
-        id: 5,
-        title: "ATC Simulator",
-        description: "Video game.",
-        category: "Development",
-        technologies: ["C#", ".NET 8.0", "MonoGame"],
-        image: 'assets/images/projects/atcsimulator_gameplay_tn.jpg',
-        link: "https://example.com"
-    },
-    {
-        id: 6,
-        title: "Piano concerto",
-        description: "Composing a piano concerto.",
-        category: "Music",
-        technologies: ["Notation", "Dorico", "Reaper"],
-        image: "assets/images/projects/pianoconcerto_tn.jpg",
-        link: "https://example.com"
-
+    constructor(title, description, category, technologies, image, link) {
+        this.id = Project.counter;
+        this.title = title;
+        this.description = description;
+        this.category = category;
+        this.technologies = technologies;
+        this.image = image;
+        this.link = link;
+        Project.counter++;
     }
+}
 
-
-];
+const projects = [];
 
 const counterStringStart = 'Showing';
 const counterStringMiddle = 'of';
@@ -79,6 +32,74 @@ filterButtonAll.addEventListener('click', (event) => { generateCards(event.targe
 filterButtonMusic.addEventListener('click', (event) => { generateCards(event.target); });
 filterButtonWebDevelopment.addEventListener('click', (event) => { generateCards(event.target); });
 filterButtonSchoolProjects.addEventListener('click', (event) => { generateCards(event.target); });
+
+const newProject = new Project('Guitar', 'Building a guitar', 'Music', ['Wood', 'Metal'], 'assets/images/projects/pianoconcerto_tn.jpg', 'https://example.com');
+const newProject2 = new Project('Game', 'Building a guitar', 'Music', ['Wood', 'Metal'], 'assets/images/projects/pianoconcerto_tn.jpg', 'https://example.com');
+
+projects.push(new Project(
+    'Portfolio Website',
+    'My personal portfolio.',
+    'School Projects',
+    ['HTML', 'CSS', 'JavaScript'],
+    'assets/images/projects/portfolio_tn.jpg',
+    'index.html'
+));
+
+projects.push(new Project(
+    'Snooker scoreboard',
+    'A scoreboard for snooker.',
+    'Web Development',
+    ['HTML', 'CSS', 'TypeScript'],
+    'assets/images/projects/snooker.jpg',
+    'https://example.com'
+));
+
+projects.push(new Project(
+    'Play piano',
+    'Practice Rachmaniniov.',
+    'Music',
+    ["notation", "chords"],
+    'assets/images/music.jpg',
+    'https://example.com'
+));
+
+projects.push(new Project(
+    'JavaScript',
+    'Make a dynamic website.',
+    'School Projects',
+    ['HTML', 'CSS', 'JavaScript'],
+    'assets/images/projects/javascript.jpg',
+    'https://example.com'
+));
+
+projects.push(new Project(
+    'ATC Simulator',
+    'Video game.',
+    'Web Development',
+    ['C#', '.NET 8.0', 'MonoGame'],
+    'assets/images/projects/atcsimulator_gameplay_tn.jpg',
+    'https://example.com'
+));
+
+projects.push(new Project(
+    'Piano concerto',
+    'Composing a piano concerto.',
+    'Music',
+    ['Notation', 'Dorico', 'Reaper'],
+    'assets/images/projects/pianoconcerto_tn.jpg',
+    'https://example.com'
+));
+
+projects.push(new Project(
+    'FMC',
+    'Route analyser.',
+    'Web Development',
+    ['Notation', 'Dorico', 'Reaper'],
+    'assets/images/projects/fmc.jpg',
+    'https://example.com'
+));
+
+
 
 function selectActiveButton(element) {
     if (element != previousSelectedFilterButton) {
@@ -157,3 +178,4 @@ function generateCards(sender) {
 }
 
 generateCards(filterButtonAll);
+
