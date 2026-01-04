@@ -26,7 +26,7 @@ function loadTheme(button) {
     headerImage.replaceChildren();
     headerImage.classList.remove('visible');
     headerMainContainer.className = 'header-main-container';
-
+    footerMainContainer.className = 'footer-main-container';
     document.body.className = '';
 
     switch (selectedTheme) {
@@ -42,7 +42,7 @@ function loadTheme(button) {
             headerImage.appendChild(imgElement);
             headerImage.classList.add('visible');
             headerLinksContainer.classList.remove('light-theme');
-            footerMainContainer.classList.remove('light-theme');
+
             headerMainContainer.classList.add('light-theme');
             headerLinksContainer.classList.add('light-theme');
             footerMainContainer.classList.add('light-theme');
@@ -62,7 +62,7 @@ function loadTheme(button) {
             headerImage.classList.add('visible');
 
             headerLinksContainer.classList.remove('light-theme');
-            footerMainContainer.classList.remove('light-theme');
+
             sessionStorage.setItem('theme', 'dark-theme');
             break;
 
@@ -79,7 +79,7 @@ function loadTheme(button) {
             headerImage.classList.add('visible');
 
             headerLinksContainer.classList.remove('light-theme');
-            footerMainContainer.classList.remove('light-theme');
+            footerMainContainer.classList.add('red-theme');
             headerMainContainer.classList.add('red-theme');
             sessionStorage.setItem('theme', 'red-theme');
             break;
