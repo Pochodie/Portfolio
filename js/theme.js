@@ -22,6 +22,8 @@ function clickButton(button) {
 
     headerImage.replaceChildren();
     headerImage.classList.remove('visible');
+    headerMainContainer.className = 'header-main-container';
+    document.body.className = '';
 
     switch (selectedTheme) {
         case 'light-theme':
@@ -34,6 +36,8 @@ function clickButton(button) {
             imgElement.alt = 'Photo of Daniel Stagno';
             headerImage.appendChild(imgElement);
             headerImage.classList.add('visible');
+            headerLinksContainer.classList.remove('light-theme');
+            footerMainContainer.classList.remove('light-theme');
             headerMainContainer.classList.add('light-theme');
             headerLinksContainer.classList.add('light-theme');
             footerMainContainer.classList.add('light-theme');
@@ -41,7 +45,7 @@ function clickButton(button) {
             break;
 
         case 'dark-theme':
-            document.body.classList.remove('light-theme');
+
             lightBackground.classList.remove('visible');
             redBackground.classList.remove('visible');
             darkBackground.classList.add('visible');
@@ -50,16 +54,14 @@ function clickButton(button) {
             imgElement.alt = 'Photo of Daniel Stagno';
             headerImage.appendChild(imgElement);
             headerImage.classList.add('visible');
-            headerMainContainer.classList.remove('light-theme');
+
             headerLinksContainer.classList.remove('light-theme');
             footerMainContainer.classList.remove('light-theme');
             break;
 
 
         case 'red-theme':
-            document.body.classList.remove('light-theme');
-            document.body.classList.remove('red-theme');
-
+            document.body.classList.add('red-theme');
             lightBackground.classList.remove('visible');
             darkBackground.classList.remove('visible');
             redBackground.classList.add('visible');
@@ -68,9 +70,10 @@ function clickButton(button) {
             imgElement.alt = 'Photo of Daniel Stagno';
             headerImage.appendChild(imgElement);
             headerImage.classList.add('visible');
-            headerMainContainer.classList.remove('light-theme');
+
             headerLinksContainer.classList.remove('light-theme');
             footerMainContainer.classList.remove('light-theme');
+            headerMainContainer.classList.add('red-theme');
             break;
     }
 }

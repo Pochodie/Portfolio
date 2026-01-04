@@ -3,8 +3,14 @@ body {
 }
 
 body.light-theme {
-  background-color: var(--white-color);
-  color: var(--black-color);
+  background-color: var(--white-color, white);
+  color: var(--black-color, black);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.red-theme {
+  background-color: var(--black-color, black);
+  color: var(--white-color, white);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -42,6 +48,11 @@ body.light-theme {
 
 .header-main-container.light-theme {
   background-color: var(--black-color, black);
+  transition: background-color 0.3s ease;
+}
+
+.header-main-container.red-theme {
+  background-color: var(--grey-color, grey);
   transition: background-color 0.3s ease;
 }
 
