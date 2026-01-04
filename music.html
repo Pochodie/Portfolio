@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <script src="js/theme.js" defer></script>
 </head>
 
 <body id="top-of-page">
-
+    <div id="dark-background" class="background-main-container dark-background visible"></div>
+    <div id="light-background" class="background-main-container light-background"></div>
+    <div id="red-background" class="background-main-container red-background"></div>
     <!-- HEADER SECTION-->
     <header class="header-main-container">
-        <div class="header-image-container">
-            <img src="assets/images/me.png" alt="Photo of Daniel Stagno">
+        <div id="header-image" class="header-image-container">
         </div>
         <div class="header-links-container">
             <nav>
@@ -28,6 +31,11 @@
             <div class="header-links-image-container">
                 <img src="assets/images/music.jpg" alt="Image for music">
             </div>
+        </div>
+        <div class="theme-switcher">
+            <button class="theme-button" data-theme="dark-theme">Dark</button>
+            <button class="theme-button" data-theme="light-theme">Light</button>
+            <button class="theme-button" data-theme="red-theme">Red</button>
         </div>
     </header>
 

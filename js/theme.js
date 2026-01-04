@@ -2,10 +2,12 @@ const headerMainContainer = document.querySelector('.header-main-container');
 const headerLinksContainer = document.querySelector('.header-links-container');
 const topOfPageContainer = document.querySelector('.top-of-page-container');
 const footerMainContainer = document.querySelector('.footer-main-container');
+const backgroundMainContainer = document.querySelector('.background-main-container');
+
 
 const headerImage = document.getElementById('header-image');
 const themeButtons = document.querySelectorAll('.theme-switcher button');
-const temporaryButton = document.getElementById('temporaryButton');
+
 const darkBackground = document.getElementById('dark-background');
 const lightBackground = document.getElementById('light-background');
 const redBackground = document.getElementById('red-background');
@@ -15,7 +17,7 @@ themeButtons.forEach(button => {
     button.addEventListener('click', (event) => loadTheme(event.target));
 });
 
-temporaryButton.addEventListener('click', () => console.log(sessionStorage.getItem('theme')));
+
 
 function loadTheme(button) {
     let selectedTheme = sessionStorage.getItem('theme');
@@ -29,6 +31,8 @@ function loadTheme(button) {
     headerImage.className = 'header-image-container';
     headerMainContainer.className = 'header-main-container';
     footerMainContainer.className = 'footer-main-container';
+    backgroundMainContainer.className = 'background-main-container';
+
     document.body.className = '';
 
 
@@ -45,11 +49,22 @@ function loadTheme(button) {
 
             headerImage.appendChild(imgElement);
 
-            requestAnimationFrame(() => {
+            if (button != null) {
+                // for FireFox
                 requestAnimationFrame(() => {
-                    imgElement.classList.add('visible')
+                    requestAnimationFrame(() => {
+                        imgElement.classList.add('visible')
+                    });
                 });
-            });
+            }
+            else {
+                imgElement.classList.add('firstLoad');
+                document.body.classList.add('firstLoad');
+
+                headerMainContainer.classList.add('firstLoad');
+                footerMainContainer.classList.add('firstLoad');
+
+            }
 
             headerLinksContainer.classList.remove('light-theme');
 
@@ -61,6 +76,7 @@ function loadTheme(button) {
 
         case 'dark-theme':
 
+            darkBackground.classList.add('dark-background');
             lightBackground.classList.remove('visible');
             redBackground.classList.remove('visible');
             topOfPageContainer.classList.remove('red-theme');
@@ -79,7 +95,13 @@ function loadTheme(button) {
                     });
                 });
             }
-            else imgElement.classList.add('firstLoad');
+            else {
+                imgElement.classList.add('firstLoad');
+                document.body.classList.add('firstLoad');
+
+                headerMainContainer.classList.add('firstLoad');
+                footerMainContainer.classList.add('firstLoad');
+            }
 
             headerLinksContainer.classList.remove('light-theme');
 
@@ -96,12 +118,22 @@ function loadTheme(button) {
             imgElement.src = 'assets/images/me.png';
             imgElement.alt = 'Photo of Daniel Stagno';
             headerImage.appendChild(imgElement);
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    imgElement.classList.add('visible')
-                });
-            });
 
+            if (button != null) {
+                // for FireFox
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        imgElement.classList.add('visible')
+                    });
+                });
+            }
+            else {
+                imgElement.classList.add('firstLoad');
+                document.body.classList.add('firstLoad');
+
+                headerMainContainer.classList.add('firstLoad');
+                footerMainContainer.classList.add('firstLoad');
+            }
 
 
             headerLinksContainer.classList.remove('light-theme');

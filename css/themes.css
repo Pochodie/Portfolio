@@ -9,12 +9,16 @@ body.light-theme {
 }
 
 body.red-theme {
-  background-color: var(--black-color, black);
+  background-color: var(--red-color, red);
   color: var(--white-color, white);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.background-fixed {
+body.firstLoad {
+  transition: none;
+}
+
+.background-main-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -22,24 +26,23 @@ body.red-theme {
   height: 100%;
   transition: opacity 0.3s ease;
   opacity: 0;
+  z-index: -1;
 }
 
 .light-background {
   background-image: url(../assets/images/background_light.jpg);
   opacity: 0;
-  z-index: -1;
 }
 
 .dark-background {
   background-image: url(../assets/images/background.jpg);
+  background-color: green;
   opacity: 0;
-  z-index: -1;
 }
 
 .red-background {
   background-image: url(../assets/images/background_red.jpg);
   opacity: 0;
-  z-index: -1;
 }
 
 .header-main-container {
@@ -56,6 +59,9 @@ body.red-theme {
   transition: background-color 0.3s ease;
 }
 
+.header-main-container.firstLoad {
+  transition: none;
+}
 .header-image-container img {
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -119,6 +125,10 @@ body.red-theme {
     color: var(--black-color, black);
     transition: color 0.3s ease;
   }
+}
+
+.footer-main-container.firstLoad {
+  transition: none;
 }
 
 .visible {
