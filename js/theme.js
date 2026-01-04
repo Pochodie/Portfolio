@@ -1,5 +1,6 @@
 const headerMainContainer = document.querySelector('.header-main-container');
 const headerLinksContainer = document.querySelector('.header-links-container');
+const footerMainContainer = document.querySelector('.footer-main-container');
 
 const headerImage = document.getElementById('header-image');
 const themeButtons = document.querySelectorAll('.theme-switcher button');
@@ -33,6 +34,7 @@ function clickButton(button) {
             headerImage.classList.add('visible');
             headerMainContainer.classList.add('light-theme');
             headerLinksContainer.classList.add('light-theme');
+            footerMainContainer.classList.add('light-theme');
 
             break;
         case 'dark-theme':
@@ -46,6 +48,7 @@ function clickButton(button) {
             headerImage.classList.add('visible');
             headerMainContainer.classList.remove('light-theme');
             headerLinksContainer.classList.remove('light-theme');
+            footerMainContainer.classList.remove('light-theme');
             break;
     }
 }

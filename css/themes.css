@@ -50,6 +50,15 @@ body.light-theme {
   }
 }
 
+.footer-main-container {
+  transition: background-color 0.3s ease;
+}
+
+.footer-main-container.light-theme {
+  background-color: var(--black-color, black);
+  transition: background-color 0.3s ease;
+}
+
 .visible {
   opacity: 1;
   transition: opacity 0.3s ease;
