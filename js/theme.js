@@ -43,7 +43,12 @@ function loadTheme(button) {
             imgElement.alt = 'Photo of Daniel Stagno';
 
             headerImage.appendChild(imgElement);
-            requestAnimationFrame(() => { imgElement.classList.add('visible') });
+
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    imgElement.classList.add('visible')
+                });
+            });
 
             headerLinksContainer.classList.remove('light-theme');
 
@@ -64,7 +69,16 @@ function loadTheme(button) {
             imgElement.alt = 'Photo of Daniel Stagno';
 
             headerImage.appendChild(imgElement);
-            requestAnimationFrame(() => { imgElement.classList.add('visible') });
+
+            if (button != null) {
+                // for FireFox
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        imgElement.classList.add('visible')
+                    });
+                });
+            }
+            else imgElement.classList.add('firstLoad');
 
             headerLinksContainer.classList.remove('light-theme');
 
@@ -81,7 +95,11 @@ function loadTheme(button) {
             imgElement.src = 'assets/images/me.png';
             imgElement.alt = 'Photo of Daniel Stagno';
             headerImage.appendChild(imgElement);
-            requestAnimationFrame(() => { imgElement.classList.add('visible') });
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    imgElement.classList.add('visible')
+                });
+            });
 
 
 
