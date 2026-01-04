@@ -56,6 +56,16 @@ body.red-theme {
   transition: background-color 0.3s ease;
 }
 
+.header-image-container img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.header-image-container img.visible {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
 .header-links-container a {
   transition: color 0.3s ease;
 }

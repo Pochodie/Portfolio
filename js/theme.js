@@ -10,7 +10,7 @@ const darkBackground = document.getElementById('dark-background');
 const lightBackground = document.getElementById('light-background');
 const redBackground = document.getElementById('red-background');
 
-const imgElement = document.createElement('img');
+
 
 themeButtons.forEach(button => {
     button.addEventListener('click', (event) => loadTheme(event.target));
@@ -20,14 +20,16 @@ temporaryButton.addEventListener('click', () => console.log(sessionStorage.getIt
 
 function loadTheme(button) {
     let selectedTheme = null;
+    const imgElement = document.createElement('img');
     if (button != null) selectedTheme = button.getAttribute('data-theme');
     else selectedTheme = 'dark-theme';
 
     headerImage.replaceChildren();
-    headerImage.classList.remove('visible');
+    headerImage.className = 'header-image-container';
     headerMainContainer.className = 'header-main-container';
     footerMainContainer.className = 'footer-main-container';
     document.body.className = '';
+
 
     switch (selectedTheme) {
         case 'light-theme':
@@ -39,8 +41,10 @@ function loadTheme(button) {
 
             imgElement.src = 'assets/images/me_light.png';
             imgElement.alt = 'Photo of Daniel Stagno';
+
             headerImage.appendChild(imgElement);
-            headerImage.classList.add('visible');
+            requestAnimationFrame(() => { imgElement.classList.add('visible') });
+
             headerLinksContainer.classList.remove('light-theme');
 
             headerMainContainer.classList.add('light-theme');
@@ -58,8 +62,9 @@ function loadTheme(button) {
 
             imgElement.src = 'assets/images/me.png';
             imgElement.alt = 'Photo of Daniel Stagno';
+
             headerImage.appendChild(imgElement);
-            headerImage.classList.add('visible');
+            requestAnimationFrame(() => { imgElement.classList.add('visible') });
 
             headerLinksContainer.classList.remove('light-theme');
 
@@ -76,7 +81,9 @@ function loadTheme(button) {
             imgElement.src = 'assets/images/me.png';
             imgElement.alt = 'Photo of Daniel Stagno';
             headerImage.appendChild(imgElement);
-            headerImage.classList.add('visible');
+            requestAnimationFrame(() => { imgElement.classList.add('visible') });
+
+
 
             headerLinksContainer.classList.remove('light-theme');
             footerMainContainer.classList.add('red-theme');
