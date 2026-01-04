@@ -67,6 +67,12 @@ body.red-theme {
   }
 }
 
+.top-of-page-container.red-theme {
+  a {
+    color: var(--black-color, black);
+  }
+}
+
 .footer-main-container {
   transition: background-color 0.3s ease;
 }

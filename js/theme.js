@@ -1,5 +1,6 @@
 const headerMainContainer = document.querySelector('.header-main-container');
 const headerLinksContainer = document.querySelector('.header-links-container');
+const topOfPageContainer = document.querySelector('.top-of-page-container');
 const footerMainContainer = document.querySelector('.footer-main-container');
 
 const headerImage = document.getElementById('header-image');
@@ -23,11 +24,13 @@ function clickButton(button) {
     headerImage.replaceChildren();
     headerImage.classList.remove('visible');
     headerMainContainer.className = 'header-main-container';
+
     document.body.className = '';
 
     switch (selectedTheme) {
         case 'light-theme':
             document.body.classList.add('light-theme');
+            topOfPageContainer.classList.remove('red-theme');
             darkBackground.classList.remove('visible');
             redBackground.classList.remove('visible');
             lightBackground.classList.add('visible');
@@ -48,6 +51,7 @@ function clickButton(button) {
 
             lightBackground.classList.remove('visible');
             redBackground.classList.remove('visible');
+            topOfPageContainer.classList.remove('red-theme');
             darkBackground.classList.add('visible');
 
             imgElement.src = 'assets/images/me.png';
@@ -65,7 +69,7 @@ function clickButton(button) {
             lightBackground.classList.remove('visible');
             darkBackground.classList.remove('visible');
             redBackground.classList.add('visible');
-
+            topOfPageContainer.classList.add('red-theme');
             imgElement.src = 'assets/images/me.png';
             imgElement.alt = 'Photo of Daniel Stagno';
             headerImage.appendChild(imgElement);
