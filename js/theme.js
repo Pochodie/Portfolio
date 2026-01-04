@@ -7,6 +7,7 @@ const themeButtons = document.querySelectorAll('.theme-switcher button');
 
 const darkBackground = document.getElementById('dark-background');
 const lightBackground = document.getElementById('light-background');
+const redBackground = document.getElementById('red-background');
 
 const imgElement = document.createElement('img');
 
@@ -26,6 +27,7 @@ function clickButton(button) {
         case 'light-theme':
             document.body.classList.add('light-theme');
             darkBackground.classList.remove('visible');
+            redBackground.classList.remove('visible');
             lightBackground.classList.add('visible');
 
             imgElement.src = 'assets/images/me_light.png';
@@ -41,7 +43,26 @@ function clickButton(button) {
         case 'dark-theme':
             document.body.classList.remove('light-theme');
             lightBackground.classList.remove('visible');
+            redBackground.classList.remove('visible');
             darkBackground.classList.add('visible');
+
+            imgElement.src = 'assets/images/me.png';
+            imgElement.alt = 'Photo of Daniel Stagno';
+            headerImage.appendChild(imgElement);
+            headerImage.classList.add('visible');
+            headerMainContainer.classList.remove('light-theme');
+            headerLinksContainer.classList.remove('light-theme');
+            footerMainContainer.classList.remove('light-theme');
+            break;
+
+
+        case 'red-theme':
+            document.body.classList.remove('light-theme');
+            document.body.classList.remove('red-theme');
+
+            lightBackground.classList.remove('visible');
+            darkBackground.classList.remove('visible');
+            redBackground.classList.add('visible');
 
             imgElement.src = 'assets/images/me.png';
             imgElement.alt = 'Photo of Daniel Stagno';

@@ -30,6 +30,12 @@ body.light-theme {
   z-index: -1;
 }
 
+.red-background {
+  background-image: url(../assets/images/background_red.jpg);
+  opacity: 0;
+  z-index: -1;
+}
+
 .header-main-container {
   transition: background-color 0.3s ease;
 }
