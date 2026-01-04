@@ -1,3 +1,7 @@
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 body.light-theme {
   background-color: var(--white-color);
   color: var(--black-color);
@@ -24,6 +28,26 @@ body.light-theme {
   background-image: url(../assets/images/background.jpg);
   opacity: 0;
   z-index: -1;
+}
+
+.header-main-container {
+  transition: background-color 0.3s ease;
+}
+
+.header-main-container.light-theme {
+  background-color: var(--black-color, black);
+  transition: background-color 0.3s ease;
+}
+
+.header-links-container a {
+  transition: color 0.3s ease;
+}
+
+.header-links-container.light-theme {
+  a {
+    color: var(--white-color);
+    transition: color 0.3s ease;
+  }
 }
 
 .visible {

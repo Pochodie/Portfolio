@@ -1,9 +1,13 @@
+const headerMainContainer = document.querySelector('.header-main-container');
+const headerLinksContainer = document.querySelector('.header-links-container');
+
 const headerImage = document.getElementById('header-image');
 const themeButtons = document.querySelectorAll('.theme-switcher button');
 
 const darkBackground = document.getElementById('dark-background');
 const lightBackground = document.getElementById('light-background');
 
+const imgElement = document.createElement('img');
 
 themeButtons.forEach(button => {
     button.addEventListener('click', (event) => clickButton(event.target));
@@ -13,7 +17,7 @@ themeButtons.forEach(button => {
 
 function clickButton(button) {
     const selectedTheme = button.getAttribute('data-theme');
-    const imgElement = document.createElement('img');
+
     headerImage.replaceChildren();
     headerImage.classList.remove('visible');
 
@@ -27,6 +31,8 @@ function clickButton(button) {
             imgElement.alt = 'Photo of Daniel Stagno';
             headerImage.appendChild(imgElement);
             headerImage.classList.add('visible');
+            headerMainContainer.classList.add('light-theme');
+            headerLinksContainer.classList.add('light-theme');
 
             break;
         case 'dark-theme':
@@ -38,6 +44,13 @@ function clickButton(button) {
             imgElement.alt = 'Photo of Daniel Stagno';
             headerImage.appendChild(imgElement);
             headerImage.classList.add('visible');
+            headerMainContainer.classList.remove('light-theme');
+            headerLinksContainer.classList.remove('light-theme');
             break;
     }
 }
+
+imgElement.src = 'assets/images/me.png';
+imgElement.alt = 'Photo of Daniel Stagno';
+headerImage.appendChild(imgElement);
+headerImage.classList.add('visible')
