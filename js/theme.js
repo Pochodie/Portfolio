@@ -11,7 +11,6 @@ const lightBackground = document.getElementById('light-background');
 const redBackground = document.getElementById('red-background');
 
 
-
 themeButtons.forEach(button => {
     button.addEventListener('click', (event) => loadTheme(event.target));
 });
@@ -19,10 +18,12 @@ themeButtons.forEach(button => {
 temporaryButton.addEventListener('click', () => console.log(sessionStorage.getItem('theme')));
 
 function loadTheme(button) {
-    let selectedTheme = null;
+    let selectedTheme = sessionStorage.getItem('theme');
+
+
     const imgElement = document.createElement('img');
     if (button != null) selectedTheme = button.getAttribute('data-theme');
-    else selectedTheme = 'dark-theme';
+    else if (selectedTheme === '') selectedTheme = 'dark-theme';
 
     headerImage.replaceChildren();
     headerImage.className = 'header-image-container';
