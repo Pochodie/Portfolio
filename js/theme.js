@@ -37,6 +37,7 @@ function clickButton(button) {
             footerMainContainer.classList.add('light-theme');
 
             break;
+
         case 'dark-theme':
             document.body.classList.remove('light-theme');
             lightBackground.classList.remove('visible');

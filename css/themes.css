@@ -57,6 +57,16 @@ body.light-theme {
 .footer-main-container.light-theme {
   background-color: var(--black-color, black);
   transition: background-color 0.3s ease;
+
+  small {
+    color: var(--white-color);
+    transition: color 0.3s ease;
+  }
+
+  a {
+    color: var(--white-color);
+    transition: color 0.3s ease;
+  }
 }
 
 .visible {
