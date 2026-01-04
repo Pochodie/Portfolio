@@ -82,12 +82,27 @@ body.red-theme {
   transition: background-color 0.3s ease;
 
   small {
-    color: var(--white-color);
+    color: var(--white-color, white);
     transition: color 0.3s ease;
   }
 
   a {
-    color: var(--white-color);
+    color: var(--white-color, white);
+    transition: color 0.3s ease;
+  }
+}
+
+.footer-main-container.red-theme {
+  background-color: var(--grey-color, grey);
+  transition: background-color 0.3s ease;
+
+  small {
+    color: var(--black-color, black);
+    transition: color 0.3s ease;
+  }
+
+  a {
+    color: var(--black-color, black);
     transition: color 0.3s ease;
   }
 }

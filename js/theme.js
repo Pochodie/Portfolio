@@ -5,7 +5,7 @@ const footerMainContainer = document.querySelector('.footer-main-container');
 
 const headerImage = document.getElementById('header-image');
 const themeButtons = document.querySelectorAll('.theme-switcher button');
-
+const temporaryButton = document.getElementById('temporaryButton');
 const darkBackground = document.getElementById('dark-background');
 const lightBackground = document.getElementById('light-background');
 const redBackground = document.getElementById('red-background');
@@ -13,13 +13,15 @@ const redBackground = document.getElementById('red-background');
 const imgElement = document.createElement('img');
 
 themeButtons.forEach(button => {
-    button.addEventListener('click', (event) => clickButton(event.target));
+    button.addEventListener('click', (event) => loadTheme(event.target));
 });
 
+temporaryButton.addEventListener('click', () => console.log(sessionStorage.getItem('theme')));
 
-
-function clickButton(button) {
-    const selectedTheme = button.getAttribute('data-theme');
+function loadTheme(button) {
+    let selectedTheme = null;
+    if (button != null) selectedTheme = button.getAttribute('data-theme');
+    else selectedTheme = 'dark-theme';
 
     headerImage.replaceChildren();
     headerImage.classList.remove('visible');
@@ -44,7 +46,7 @@ function clickButton(button) {
             headerMainContainer.classList.add('light-theme');
             headerLinksContainer.classList.add('light-theme');
             footerMainContainer.classList.add('light-theme');
-
+            sessionStorage.setItem('theme', 'light-theme');
             break;
 
         case 'dark-theme':
@@ -61,6 +63,7 @@ function clickButton(button) {
 
             headerLinksContainer.classList.remove('light-theme');
             footerMainContainer.classList.remove('light-theme');
+            sessionStorage.setItem('theme', 'dark-theme');
             break;
 
 
@@ -78,11 +81,12 @@ function clickButton(button) {
             headerLinksContainer.classList.remove('light-theme');
             footerMainContainer.classList.remove('light-theme');
             headerMainContainer.classList.add('red-theme');
+            sessionStorage.setItem('theme', 'red-theme');
             break;
     }
 }
 
-imgElement.src = 'assets/images/me.png';
-imgElement.alt = 'Photo of Daniel Stagno';
-headerImage.appendChild(imgElement);
-headerImage.classList.add('visible')
+window.addEventListener('load', function () {
+    loadTheme(null);
+});
+
