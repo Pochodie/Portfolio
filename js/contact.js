@@ -141,7 +141,7 @@ function validateMessage(validateEmpty = false) {
 
     if (numberOfCharacters.length === 0) clearError(message, true);
 
-    minimumCharacters = numberOfCharacters.length >= messageMinimumCharacters;
+    const minimumCharacters = numberOfCharacters.length >= messageMinimumCharacters;
 
     return minimumCharacters;
 }

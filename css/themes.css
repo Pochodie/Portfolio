@@ -9,19 +9,19 @@ body.light-theme {
 }
 
 body.light-theme figcaption,
-body.red-theme figcaption {
+body.pink-theme figcaption {
   color: black;
 }
 
 body.light-theme .skills-main-container,
 body.light-theme .experience-main-container,
-body.red-theme .skills-main-container,
-body.red-theme .experience-main-container {
+body.pink-theme .skills-main-container,
+body.pink-theme .experience-main-container {
   color: #000;
 }
 
 body.light-theme h2,
-body.red-theme h2 {
+body.pink-theme h2 {
   color: #000;
 }
 
@@ -38,38 +38,38 @@ body.light-theme .project-card a {
   color: var(--black-color, black);
 }
 
-body.red-theme {
+body.pink-theme {
   background-color: #ff9ca8;
   color: #000;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.red-theme .gallery-image img {
+body.pink-theme .gallery-image img {
   border: 2px solid #000;
 }
 
-body.red-theme .progress-status {
+body.pink-theme .progress-status {
   background-color: #000;
 }
 
-body.red-theme .project-card {
+body.pink-theme .project-card {
   border: 1px solid #000;
   background-color: var(--grey-color, grey);
 }
 
-body.red-theme .project-card:hover {
+body.pink-theme .project-card:hover {
   border: 1px solid #fff;
 }
 
-body.red-theme .project-card a {
+body.pink-theme .project-card a {
   color: #000;
 }
 
-body.red-theme .form-main-container small {
+body.pink-theme .form-main-container small {
   color: #000;
 }
 
-body.red-theme .form-main-container input.error {
+body.pink-theme .form-main-container input.error {
   border: 2px solid #000;
 }
 body.firstLoad {
@@ -98,12 +98,11 @@ body.firstLoad {
 
 .dark-background {
   background-image: url(../assets/images/background_dark.jpg);
-  background-color: green;
   opacity: 0;
 }
 
-.red-background {
-  background-image: url(../assets/images/background_red.jpg);
+.pink-background {
+  background-image: url(../assets/images/background_pink.jpg);
   opacity: 0;
 }
 
@@ -116,7 +115,7 @@ body.firstLoad {
   transition: background-color 0.3s ease;
 }
 
-.header-main-container.red-theme {
+.header-main-container.pink-theme {
   background-color: var(--grey-color, grey);
   transition: background-color 0.3s ease;
 }
@@ -149,23 +148,23 @@ body.firstLoad {
   }
 }
 
-.header-links-container.red-theme {
+.header-links-container.pink-theme {
   a {
     color: #000;
     transition: color 0.3s ease;
   }
 }
 
-.header-links-container.red-theme ul li a[aria-current="page"] {
+.header-links-container.pink-theme ul li a[aria-current="page"] {
   color: rgb(231, 26, 26);
 }
 
 .header-themebuttons-container {
   display: flex;
-  width: 40rem;
+  max-width: 40rem;
 }
 
-.top-of-page-container.red-theme {
+.top-of-page-container.pink-theme {
   a {
     color: var(--black-color, black);
   }
@@ -190,7 +189,7 @@ body.firstLoad {
   }
 }
 
-.footer-main-container.red-theme {
+.footer-main-container.pink-theme {
   background-color: var(--grey-color, grey);
   transition: background-color 0.3s ease;
 

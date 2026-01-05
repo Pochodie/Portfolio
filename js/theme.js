@@ -10,7 +10,7 @@ const themeButtons = document.querySelectorAll('.theme-switcher button');
 
 const darkBackground = document.getElementById('dark-background');
 const lightBackground = document.getElementById('light-background');
-const redBackground = document.getElementById('red-background');
+const pinkBackground = document.getElementById('pink-background');
 
 let previousSelectedThemeButton = null;
 
@@ -32,9 +32,9 @@ function applyLightTheme(button) {
 
     const imgElement = document.createElement('img');
     document.body.classList.add('light-theme');
-    topOfPageContainer.classList.remove('red-theme');
+    topOfPageContainer.classList.remove('pink-theme');
     darkBackground.classList.remove('visible');
-    redBackground.classList.remove('visible');
+    pinkBackground.classList.remove('visible');
     lightBackground.classList.add('visible');
 
     imgElement.src = 'assets/images/me_light.png';
@@ -70,8 +70,8 @@ function applyDarkTheme(button) {
     const imgElement = document.createElement('img');
     darkBackground.classList.add('dark-background');
     lightBackground.classList.remove('visible');
-    redBackground.classList.remove('visible');
-    topOfPageContainer.classList.remove('red-theme');
+    pinkBackground.classList.remove('visible');
+    topOfPageContainer.classList.remove('pink-theme');
     darkBackground.classList.add('visible');
 
     imgElement.src = 'assets/images/me.png';
@@ -101,11 +101,11 @@ function applyDarkTheme(button) {
 function applyPinkTheme(button) {
 
     const imgElement = document.createElement('img');
-    document.body.classList.add('red-theme');
+    document.body.classList.add('pink-theme');
     lightBackground.classList.remove('visible');
     darkBackground.classList.remove('visible');
-    redBackground.classList.add('visible');
-    topOfPageContainer.classList.add('red-theme');
+    pinkBackground.classList.add('visible');
+    topOfPageContainer.classList.add('pink-theme');
     imgElement.src = 'assets/images/me.png';
     imgElement.alt = 'Photo of Daniel Stagno';
     headerImage.appendChild(imgElement);
@@ -126,11 +126,11 @@ function applyPinkTheme(button) {
         footerMainContainer.classList.add('firstLoad');
     }
 
-    footerMainContainer.classList.add('red-theme');
-    headerMainContainer.classList.add('red-theme');
-    headerLinksContainer.classList.add('red-theme');
+    footerMainContainer.classList.add('pink-theme');
+    headerMainContainer.classList.add('pink-theme');
+    headerLinksContainer.classList.add('pink-theme');
 
-    sessionStorage.setItem('theme', 'red');
+    sessionStorage.setItem('theme', 'pink');
 }
 
 // If no button is passed, default to dark or restore the last theme from sessionStorage.
@@ -160,7 +160,7 @@ function loadTheme(button) {
             applyLightTheme(button);
             selectActiveTheme(themeButtons[1]);
             break;
-        case 'red':
+        case 'pink':
             applyPinkTheme(button);
             selectActiveTheme(themeButtons[2]);
             break;
