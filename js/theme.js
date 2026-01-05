@@ -12,20 +12,39 @@ const darkBackground = document.getElementById('dark-background');
 const lightBackground = document.getElementById('light-background');
 const redBackground = document.getElementById('red-background');
 
+let previousSelectedFilterButton = null;
 
 themeButtons.forEach(button => {
     button.addEventListener('click', (event) => loadTheme(event.target));
 });
 
+function selectActiveButton(element) {
 
+    if (element != previousSelectedFilterButton) {
+        if (previousSelectedFilterButton != null) previousSelectedFilterButton.classList.remove('active');
+        element.classList.add('active');
+        previousSelectedFilterButton = element;
+    }
+}
 
 function loadTheme(button) {
     let selectedTheme = sessionStorage.getItem('theme');
 
-
+    console.log(selectedTheme);
     const imgElement = document.createElement('img');
     if (button != null) selectedTheme = button.getAttribute('data-theme');
-    else if (selectedTheme === '') selectedTheme = 'dark-theme';
+    else if (selectedTheme === null) selectedTheme = 'dark-theme';
+
+
+    switch (selectedTheme) {
+        case 'dark-theme': selectActiveButton(themeButtons[0]);
+            break;
+        case 'light-theme': selectActiveButton(themeButtons[1]);
+            break;
+        case 'red-theme': selectActiveButton(themeButtons[2]);
+    }
+
+
 
     headerImage.replaceChildren();
     headerImage.className = 'header-image-container';
@@ -98,7 +117,7 @@ function loadTheme(button) {
             else {
                 imgElement.classList.add('firstLoad');
                 document.body.classList.add('firstLoad');
-
+                console.log('first load');
                 headerMainContainer.classList.add('firstLoad');
                 footerMainContainer.classList.add('firstLoad');
             }
