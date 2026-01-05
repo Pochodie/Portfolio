@@ -67,6 +67,8 @@ body {
   position: relative;
   display: flex;
   align-items: flex-end;
+  color: var(--black-color, black);
+  transition: color 0.3s ease;
 
   ul {
     display: flex;

@@ -49,6 +49,7 @@ function loadTheme(button) {
     headerImage.replaceChildren();
     headerImage.className = 'header-image-container';
     headerMainContainer.className = 'header-main-container';
+    headerLinksContainer.className = 'header-links-container';
     footerMainContainer.className = 'footer-main-container';
     backgroundMainContainer.className = 'background-main-container';
 
@@ -85,7 +86,7 @@ function loadTheme(button) {
 
             }
 
-            headerLinksContainer.classList.remove('light-theme');
+
 
             headerMainContainer.classList.add('light-theme');
             headerLinksContainer.classList.add('light-theme');
@@ -122,7 +123,7 @@ function loadTheme(button) {
                 footerMainContainer.classList.add('firstLoad');
             }
 
-            headerLinksContainer.classList.remove('light-theme');
+
 
             sessionStorage.setItem('theme', 'dark-theme');
             break;
@@ -155,9 +156,10 @@ function loadTheme(button) {
             }
 
 
-            headerLinksContainer.classList.remove('light-theme');
+
             footerMainContainer.classList.add('red-theme');
             headerMainContainer.classList.add('red-theme');
+            headerLinksContainer.classList.add('red-theme');
             sessionStorage.setItem('theme', 'red-theme');
             break;
     }

@@ -8,17 +8,21 @@ body.light-theme {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.light-theme figcaption {
+body.light-theme figcaption,
+body.red-theme figcaption {
   color: black;
 }
 
 body.light-theme .skills-main-container,
-body.light-theme .experience-main-container {
-  color: var(--black-color);
+body.light-theme .experience-main-container,
+body.red-theme .skills-main-container,
+body.red-theme .experience-main-container {
+  color: #000;
 }
 
-body.light-theme h2 {
-  color: var(--black-color);
+body.light-theme h2,
+body.red-theme h2 {
+  color: #000;
 }
 
 body.light-theme .project-card {
@@ -34,33 +38,37 @@ body.light-theme .project-card a {
 }
 
 body.red-theme {
-  background-color: #fc7485;
-  color: #fff;
+  background-color: #ff9ca8;
+  color: #000;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.red-theme .gallery-image img {
-  border: 2px solid var(--black-color, black);
+  border: 2px solid #000;
 }
 
 body.red-theme .progress-status {
-  background-color: var(--black-color, black);
+  background-color: #000;
 }
 
 body.red-theme .project-card {
-  border: 1px solid var(--black-color, black);
+  border: 1px solid #000;
 }
 
 body.red-theme .project-card:hover {
   border: 1px solid #fff;
 }
 
+body.red-theme .project-card a {
+  color: #000;
+}
+
 body.red-theme .form-main-container small {
-  color: var(--black-color);
+  color: #000;
 }
 
 body.red-theme .form-main-container input.error {
-  border: 2px solid var(--black-color, black);
+  border: 2px solid #000;
 }
 body.firstLoad {
   transition: none;
@@ -83,13 +91,13 @@ body.firstLoad {
 }
 
 .dark-background {
-  background-image: url(../assets/images/background.jpg);
+  background-image: url(../assets/images/background_dark.jpg);
   background-color: green;
   opacity: 0;
 }
 
 .red-background {
-  background-image: url(../assets/images/background_red3.jpg);
+  background-image: url(../assets/images/background_red.jpg);
   opacity: 0;
 }
 
@@ -133,6 +141,17 @@ body.firstLoad {
     color: var(--white-color);
     transition: color 0.3s ease;
   }
+}
+
+.header-links-container.red-theme {
+  a {
+    color: #000;
+    transition: color 0.3s ease;
+  }
+}
+
+.header-links-container.red-theme ul li a[aria-current="page"] {
+  color: rgb(231, 26, 26);
 }
 
 .header-themebuttons-container {
