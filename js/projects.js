@@ -161,9 +161,9 @@ function generateCards(sender) {
                 }
 
                 projectDiv.className = 'project-card';
-                const h3 = document.createElement('h3');
-                const description = document.createElement('p');
                 const image = document.createElement('img');
+                const title = document.createElement('h3');
+                const description = document.createElement('p');
                 const labelCategory = document.createElement('label');
                 const link = document.createElement('a');
                 link.setAttribute('href', element.link);
@@ -174,10 +174,10 @@ function generateCards(sender) {
                 labelCategory.textContent = element.category;
 
                 description.textContent = element.description;
-                h3.textContent = element.title;
+                title.textContent = element.title;
 
                 projectDiv.appendChild(image);
-                projectDiv.appendChild(h3);
+                projectDiv.appendChild(title);
                 projectDiv.appendChild(labelCategory);
                 projectDiv.appendChild(description);
 

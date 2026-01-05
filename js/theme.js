@@ -33,15 +33,15 @@ function loadTheme(button) {
     console.log(selectedTheme);
     const imgElement = document.createElement('img');
     if (button != null) selectedTheme = button.getAttribute('data-theme');
-    else if (selectedTheme === null) selectedTheme = 'dark-theme';
+    else if (selectedTheme === null) selectedTheme = 'dark';
 
 
     switch (selectedTheme) {
-        case 'dark-theme': selectActiveTheme(themeButtons[0]);
+        case 'dark': selectActiveTheme(themeButtons[0]);
             break;
-        case 'light-theme': selectActiveTheme(themeButtons[1]);
+        case 'light': selectActiveTheme(themeButtons[1]);
             break;
-        case 'red-theme': selectActiveTheme(themeButtons[2]);
+        case 'red': selectActiveTheme(themeButtons[2]);
     }
 
 
@@ -57,7 +57,7 @@ function loadTheme(button) {
 
 
     switch (selectedTheme) {
-        case 'light-theme':
+        case 'light':
             document.body.classList.add('light-theme');
             topOfPageContainer.classList.remove('red-theme');
             darkBackground.classList.remove('visible');
@@ -91,10 +91,10 @@ function loadTheme(button) {
             headerMainContainer.classList.add('light-theme');
             headerLinksContainer.classList.add('light-theme');
             footerMainContainer.classList.add('light-theme');
-            sessionStorage.setItem('theme', 'light-theme');
+            sessionStorage.setItem('theme', 'light');
             break;
 
-        case 'dark-theme':
+        case 'dark':
 
             darkBackground.classList.add('dark-background');
             lightBackground.classList.remove('visible');
@@ -125,11 +125,11 @@ function loadTheme(button) {
 
 
 
-            sessionStorage.setItem('theme', 'dark-theme');
+            sessionStorage.setItem('theme', 'dark');
             break;
 
 
-        case 'red-theme':
+        case 'red':
             document.body.classList.add('red-theme');
             lightBackground.classList.remove('visible');
             darkBackground.classList.remove('visible');
@@ -160,7 +160,7 @@ function loadTheme(button) {
             footerMainContainer.classList.add('red-theme');
             headerMainContainer.classList.add('red-theme');
             headerLinksContainer.classList.add('red-theme');
-            sessionStorage.setItem('theme', 'red-theme');
+            sessionStorage.setItem('theme', 'red');
             break;
     }
 }
