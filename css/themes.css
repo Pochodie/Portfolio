@@ -35,7 +35,7 @@ body.light-theme .project-card a {
 
 body.red-theme {
   background-color: #fc7485;
-  color: var(--white-color, white);
+  color: #fff;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -52,7 +52,7 @@ body.red-theme .project-card {
 }
 
 body.red-theme .project-card:hover {
-  border: 1px solid var(--white-color, white);
+  border: 1px solid #fff;
 }
 
 body.red-theme .form-main-container small {
