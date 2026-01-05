@@ -1,58 +1,5 @@
 /* Projects section */
 
-.projects-main-container {
-  h1 {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 3px solid var(--red-color, red);
-  }
-
-  h2 {
-    margin-bottom: 2rem;
-  }
-
-  p {
-    margin-bottom: 1rem;
-  }
-}
-
-.projects-image-grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 16rem);
-
-  margin-bottom: 2rem;
-
-  figure {
-    margin-right: 1rem;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid var(--red-color, red);
-    transition: transform 220ms linear;
-  }
-}
-
-.projects-challenge-solution {
-  display: grid;
-  grid-template-columns: 0.5fr 1fr;
-}
-
-.projects-challenge-solution h3 {
-  padding: 0 5rem 0 0;
-  font-size: 1.8rem;
-}
-
-.projects-challenge-solution p {
-  margin: 2 0 2rem;
-  padding: 0;
-}
-
-.projects-challenge-solution a {
-  color: var(--white-color);
-}
-
 .project-cards-container {
   display: grid;
   max-width: 60rem;
@@ -76,7 +23,7 @@
   align-items: center;
   justify-content: flex-start;
   border-radius: 5px;
-  border: 1px solid var(--white-color);
+  border: 1px solid var(--white-color, white);
   text-align: center;
 
   img {
@@ -101,6 +48,7 @@
   a {
     color: var(--white-color);
     font-size: 1rem;
+    margin-top: 0.5rem;
   }
 }
 

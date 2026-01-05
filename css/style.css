@@ -125,7 +125,6 @@ nav {
   h1 {
     margin-bottom: 2rem;
     padding-bottom: 0.1rem;
-    /*border-bottom: 3px solid var(--red-color, red);*/
   }
 }
 
@@ -209,6 +208,7 @@ nav {
 
 .skills-main-container h2 {
   margin: 0 0 2rem;
+  color: var(--white-color);
 }
 
 .skill-container {
@@ -335,6 +335,7 @@ nav {
 
 .experience-main-container h2 {
   margin: 0 0 2rem;
+  color: var(--white-color);
 }
 
 .experience-main-container p {

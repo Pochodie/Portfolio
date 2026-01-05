@@ -12,18 +12,18 @@ const darkBackground = document.getElementById('dark-background');
 const lightBackground = document.getElementById('light-background');
 const redBackground = document.getElementById('red-background');
 
-let previousSelectedFilterButton = null;
+let previousSelectedThemeButton = null;
 
 themeButtons.forEach(button => {
     button.addEventListener('click', (event) => loadTheme(event.target));
 });
 
-function selectActiveButton(element) {
+function selectActiveTheme(element) {
 
-    if (element != previousSelectedFilterButton) {
-        if (previousSelectedFilterButton != null) previousSelectedFilterButton.classList.remove('active');
+    if (element != previousSelectedThemeButton) {
+        if (previousSelectedThemeButton != null) previousSelectedThemeButton.classList.remove('active');
         element.classList.add('active');
-        previousSelectedFilterButton = element;
+        previousSelectedThemeButton = element;
     }
 }
 
@@ -37,11 +37,11 @@ function loadTheme(button) {
 
 
     switch (selectedTheme) {
-        case 'dark-theme': selectActiveButton(themeButtons[0]);
+        case 'dark-theme': selectActiveTheme(themeButtons[0]);
             break;
-        case 'light-theme': selectActiveButton(themeButtons[1]);
+        case 'light-theme': selectActiveTheme(themeButtons[1]);
             break;
-        case 'red-theme': selectActiveButton(themeButtons[2]);
+        case 'red-theme': selectActiveTheme(themeButtons[2]);
     }
 
 

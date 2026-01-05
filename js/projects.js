@@ -168,7 +168,7 @@ function generateCards(sender) {
                 const link = document.createElement('a');
                 link.setAttribute('href', element.link);
                 link.setAttribute('target', '_blank');
-                link.textContent = element.link;
+                link.textContent = 'View Project'
                 image.src = element.image;
                 image.style = 'width: 50%; object-fit: contain';
                 labelCategory.textContent = element.category;

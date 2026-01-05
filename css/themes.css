@@ -8,12 +8,60 @@ body.light-theme {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+body.light-theme figcaption {
+  color: black;
+}
+
+body.light-theme .skills-main-container,
+body.light-theme .experience-main-container {
+  color: var(--black-color);
+}
+
+body.light-theme h2 {
+  color: var(--black-color);
+}
+
+body.light-theme .project-card {
+  border: 1px solid var(--black-color, black);
+}
+
+body.light-theme .project-card:hover {
+  border: 1px solid var(--red-color, red);
+}
+
+body.light-theme .project-card a {
+  color: var(--black-color, black);
+}
+
 body.red-theme {
-  background-color: var(--red-color, red);
+  background-color: #fc7485;
   color: var(--white-color, white);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+body.red-theme .gallery-image img {
+  border: 2px solid var(--black-color, black);
+}
+
+body.red-theme .progress-status {
+  background-color: var(--black-color, black);
+}
+
+body.red-theme .project-card {
+  border: 1px solid var(--black-color, black);
+}
+
+body.red-theme .project-card:hover {
+  border: 1px solid var(--white-color, white);
+}
+
+body.red-theme .form-main-container small {
+  color: var(--black-color);
+}
+
+body.red-theme .form-main-container input.error {
+  border: 2px solid var(--black-color, black);
+}
 body.firstLoad {
   transition: none;
 }
@@ -41,7 +89,7 @@ body.firstLoad {
 }
 
 .red-background {
-  background-image: url(../assets/images/background_red.jpg);
+  background-image: url(../assets/images/background_red3.jpg);
   opacity: 0;
 }
 
@@ -85,6 +133,11 @@ body.firstLoad {
     color: var(--white-color);
     transition: color 0.3s ease;
   }
+}
+
+.header-themebuttons-container {
+  display: flex;
+  width: 40rem;
 }
 
 .top-of-page-container.red-theme {
