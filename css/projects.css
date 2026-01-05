@@ -26,31 +26,31 @@
   border: 1px solid var(--white-color, white);
   background-color: #2d2d2d;
   text-align: center;
+}
 
-  img {
-    margin-top: 1rem;
-  }
+.project-card img {
+  margin-top: 1rem;
+}
 
-  h3 {
-    font-size: 1.4rem;
-    margin: 1rem 0;
-  }
+.project-card h3 {
+  font-size: 1.4rem;
+  margin: 1rem 0;
+}
 
-  p {
-    padding: 0 2rem;
-    font-size: 1rem;
-  }
+.project-card p {
+  padding: 0 2rem;
+  font-size: 1rem;
+}
 
-  label {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-  }
+.project-card label {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
 
-  a {
-    color: var(--white-color);
-    font-size: 1rem;
-    margin-top: 0.5rem;
-  }
+.project-card a {
+  color: var(--white-color);
+  font-size: 1rem;
+  margin-top: 0.5rem;
 }
 
 .projects-counter {

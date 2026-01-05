@@ -141,18 +141,14 @@ body.firstLoad {
   transition: color 0.3s ease;
 }
 
-.header-links-container.light-theme {
-  a {
-    color: var(--white-color);
-    transition: color 0.3s ease;
-  }
+.header-links-container.light-theme a {
+  color: var(--white-color);
+  transition: color 0.3s ease;
 }
 
-.header-links-container.pink-theme {
-  a {
-    color: #000;
-    transition: color 0.3s ease;
-  }
+.header-links-container.pink-theme a {
+  color: #000;
+  transition: color 0.3s ease;
 }
 
 .header-links-container.pink-theme ul li a[aria-current="page"] {
@@ -164,10 +160,8 @@ body.firstLoad {
   max-width: 40rem;
 }
 
-.top-of-page-container.pink-theme {
-  a {
-    color: var(--black-color, black);
-  }
+.top-of-page-container.pink-theme a {
+  color: var(--black-color, black);
 }
 
 .footer-main-container {
@@ -177,31 +171,31 @@ body.firstLoad {
 .footer-main-container.light-theme {
   background-color: var(--black-color, black);
   transition: background-color 0.3s ease;
+}
 
-  small {
-    color: var(--white-color, white);
-    transition: color 0.3s ease;
-  }
+.footer-main-container.light-theme small {
+  color: var(--white-color, white);
+  transition: color 0.3s ease;
+}
 
-  a {
-    color: var(--white-color, white);
-    transition: color 0.3s ease;
-  }
+.footer-main-container.light-theme a {
+  color: var(--white-color, white);
+  transition: color 0.3s ease;
 }
 
 .footer-main-container.pink-theme {
   background-color: var(--grey-color, grey);
   transition: background-color 0.3s ease;
+}
 
-  small {
-    color: var(--black-color, black);
-    transition: color 0.3s ease;
-  }
+.footer-main-container.pink-theme small {
+  color: var(--black-color, black);
+  transition: color 0.3s ease;
+}
 
-  a {
-    color: var(--black-color, black);
-    transition: color 0.3s ease;
-  }
+.footer-main-container.pink-theme a {
+  color: var(--black-color, black);
+  transition: color 0.3s ease;
 }
 
 .footer-main-container.firstLoad {

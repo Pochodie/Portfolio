@@ -4,137 +4,137 @@
   display: grid;
   width: 26rem;
   gap: 0 2rem;
+}
 
-  label {
-    display: block;
-    margin-bottom: 0.4rem;
-  }
+.form-main-container label {
+  display: block;
+  margin-bottom: 0.4rem;
+}
 
-  input {
-    display: block;
-    background-color: var(--white-color);
-    color: var(--black-color);
-    font-family: inherit;
-    font-size: 1.5rem;
-    border-radius: 5px;
-    border: 2px solid #ccc;
-    caret-color: var(--red-color);
-    outline: none;
-  }
+.form-main-container input {
+  display: block;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  font-family: inherit;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  caret-color: var(--red-color);
+  outline: none;
+}
 
-  small {
-    color: #dc3545;
-    opacity: 0;
-    transition: opacity 500ms;
-  }
+.form-main-container small {
+  color: #dc3545;
+  opacity: 0;
+  transition: opacity 500ms;
+}
 
-  .show-error {
-    opacity: 1;
-    transition: opacity 500ms;
-  }
+.form-main-container .show-error {
+  opacity: 1;
+  transition: opacity 500ms;
+}
 
-  input.success {
-    border: 2px solid #0f0;
-  }
+.form-main-container input.success {
+  border: 2px solid #23bb23;
+}
 
-  input.error {
-    border: 2px solid #dc3545;
-  }
+.form-main-container input.error {
+  border: 2px solid #dc3545;
+}
 
-  input:focus {
-    border: 2px solid #00f;
-  }
+.form-main-container input:focus {
+  border: 2px solid #00f;
+}
 
-  textarea {
-    width: 100%;
-    height: 8rem;
-    max-width: 100%;
-    resize: none;
-    font-family: inherit;
-    font-size: 1.5rem;
-    background-color: var(--white-color);
-    color: var(--black-color);
-    border-radius: 5px;
-    border: 2px solid #ccc;
-    caret-color: var(--red-color);
-    outline: none;
-  }
+.form-main-container textarea {
+  width: 100%;
+  height: 8rem;
+  max-width: 100%;
+  resize: none;
+  font-family: inherit;
+  font-size: 1.5rem;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  caret-color: var(--red-color);
+  outline: none;
+}
 
-  textarea:focus {
-    border: 2px solid #00f;
-  }
+.form-main-container textarea:focus {
+  border: 2px solid #00f;
+}
 
-  textarea.success {
-    border: 2px solid #0f0;
-  }
+.form-main-container textarea.success {
+  border: 2px solid #23bb23;
+}
 
-  textarea.error {
-    border: 2px solid #dc3545;
-  }
+.form-main-container textarea.error {
+  border: 2px solid #dc3545;
+}
 
-  select {
-    border-radius: 5px;
-    border: 2px solid #ccc;
-    outline: none;
-  }
+.form-main-container select {
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  outline: none;
+}
 
-  select:focus {
-    border: 2px solid #00f;
-  }
+.form-main-container select:focus {
+  border: 2px solid #00f;
+}
 
-  div:nth-child(1) input {
-    max-width: 12rem;
-  }
+.form-main-container div:nth-child(1) input {
+  max-width: 12rem;
+}
 
-  div:nth-child(2) input {
-    max-width: 12rem;
-  }
+.form-main-container div:nth-child(2) input {
+  max-width: 12rem;
+}
 
-  div:nth-child(3) input {
-    width: 100%;
-    max-width: 100%;
-  }
+.form-main-container div:nth-child(3) input {
+  width: 100%;
+  max-width: 100%;
+}
 
-  div:nth-child(4) input {
-    width: 100%;
-    max-width: 100%;
-  }
+.form-main-container div:nth-child(4) input {
+  width: 100%;
+  max-width: 100%;
+}
 
-  div:nth-child(5) select {
-    width: 100%;
-    padding: 0.5rem 0;
-    max-width: 100%;
-  }
+.form-main-container div:nth-child(5) select {
+  width: 100%;
+  padding: 0.5rem 0;
+  max-width: 100%;
+}
 
-  div:nth-child(6) small.success {
-    color: #0f0;
-  }
+.form-main-container div:nth-child(6) small.success {
+  color: #23bb23;
+}
 
-  button {
-    border-radius: 5px;
-    font-family: inherit;
-    background-color: var(--white-color);
-    outline: none;
-    border: 2px solid #ccc;
-  }
+.form-main-container button {
+  border-radius: 5px;
+  font-family: inherit;
+  background-color: var(--white-color);
+  outline: none;
+  border: 2px solid #ccc;
+}
 
-  button:hover {
-    color: var(--red-color);
-  }
+.form-main-container button:hover {
+  color: var(--red-color);
+}
 
-  button:focus {
-    border: 2px solid #00f;
-  }
+.form-main-container button:focus {
+  border: 2px solid #00f;
+}
 
-  .success-message-container {
-    margin: 1rem 0;
-    width: 100%;
-    max-width: 100%;
-    grid-column: 1/3;
+.form-main-container .success-message-container {
+  margin: 1rem 0;
+  width: 100%;
+  max-width: 100%;
+  grid-column: 1/3;
+}
 
-    small {
-      color: #0f0;
-      font-size: 1.5rem;
-    }
-  }
+.form-main-container .success-message-container small {
+  color: #23bb23;
+  font-size: 1.5rem;
 }

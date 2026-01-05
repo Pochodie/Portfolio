@@ -54,13 +54,13 @@ body {
   flex-shrink: 0;
   padding-top: 1rem;
   border-right: 3px solid var(--red-color, red);
+}
 
-  img {
-    object-fit: contain;
-    object-position: left bottom;
-    width: 100%;
-    height: 100%;
-  }
+.header-image-container img {
+  object-fit: contain;
+  object-position: left bottom;
+  width: 100%;
+  height: 100%;
 }
 
 .header-links-container {
@@ -69,22 +69,22 @@ body {
   align-items: flex-end;
   color: var(--black-color, black);
   transition: color 0.3s ease;
+}
 
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 2rem;
+.header-links-container ul {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 2rem;
+}
 
-    li {
-      list-style: none;
-      margin-left: 2rem;
+.header-links-container ul li {
+  list-style: none;
+  margin-left: 2rem;
+}
 
-      a {
-        text-decoration: none;
-        color: var(--black-color, black);
-      }
-    }
-  }
+.header-links-container ul li a {
+  text-decoration: none;
+  color: var(--black-color, black);
 }
 
 .header-links-image-container {
@@ -94,13 +94,13 @@ body {
   right: 0;
   animation: image-transition 2s forwards;
   z-index: -1;
+}
 
-  img {
-    object-fit: contain;
-    object-position: right;
-    width: 100%;
-    height: 100%;
-  }
+.header-links-image-container img {
+  object-fit: contain;
+  object-position: right;
+  width: 100%;
+  height: 100%;
 }
 
 @keyframes image-transition {
@@ -123,11 +123,11 @@ nav {
   margin: calc(var(--header-height) + 2rem) 1.5rem 2rem;
   font-size: 1.6rem;
   max-width: 72rem;
+}
 
-  h1 {
-    margin-bottom: 2rem;
-    padding-bottom: 0.1rem;
-  }
+.main-container h1 {
+  margin-bottom: 2rem;
+  padding-bottom: 0.1rem;
 }
 
 .horisontal-line {
@@ -140,15 +140,15 @@ nav {
   display: flex;
   justify-content: center;
   margin: 1rem;
+}
 
-  a {
-    color: var(--red-color);
-    text-decoration: none;
-    opacity: 0.7;
-    transition: opacity 100ms;
-    padding: 0.1rem;
-    font-size: 2.2rem;
-  }
+.top-of-page-container a {
+  color: var(--red-color);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 100ms;
+  padding: 0.1rem;
+  font-size: 2.2rem;
 }
 
 /* Gallery section */
@@ -354,14 +354,12 @@ nav {
 
 /* Music section */
 
-.audio-main-container {
-  h2 {
-    margin-bottom: 2rem;
-  }
+.audio-main-container h2 {
+  margin-bottom: 2rem;
+}
 
-  figure {
-    margin-bottom: 4rem;
-  }
+.audio-main-container figure {
+  margin-bottom: 4rem;
 }
 
 /* Footer section */
@@ -370,23 +368,23 @@ nav {
   display: flex;
   height: var(--footer-height);
   background-color: var(--white-color);
+}
 
-  small {
-    color: var(--black-color);
-    font-size: 1rem;
-    margin: 0 0 0 1rem;
-    align-self: center;
-  }
+.footer-main-container small {
+  color: var(--black-color);
+  font-size: 1rem;
+  margin: 0 0 0 1rem;
+  align-self: center;
+}
 
-  small a {
-    color: var(--black-color);
-    padding-right: 1rem;
-  }
+.footer-main-container small a {
+  color: var(--black-color);
+  padding-right: 1rem;
+}
 
-  small a:hover {
-    color: var(--red-color);
-    transition: color 200ms;
-  }
+.footer-main-container small a:hover {
+  color: var(--red-color);
+  transition: color 200ms;
 }
 
 .social-media-container {
@@ -396,22 +394,22 @@ nav {
   height: 100%;
   align-items: center;
   justify-content: flex-start;
+}
 
-  a {
-    text-decoration: none;
-    height: 60%;
-    width: auto;
-  }
+.social-media-container a {
+  text-decoration: none;
+  height: 60%;
+  width: auto;
+}
 
-  a img {
-    height: 100%;
-    width: auto;
-    object-fit: contain;
-    margin-left: 1rem;
-    transform: scale(1);
-    opacity: 0.7;
-    transition: scale 500ms, opacity 200ms;
-  }
+.social-media-container a img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  margin-left: 1rem;
+  transform: scale(1);
+  opacity: 0.7;
+  transition: scale 500ms, opacity 200ms;
 }
 
 .header-links-container ul li a[aria-current="page"] {
@@ -450,26 +448,7 @@ nav {
   }
 }
 
-/*@media only screen and (max-width: 480px) {
-  .header-links-container ul {
-    font-size: 1.7rem;
-    flex-direction: column;
-  }
-
-  .projects-challenge-solution {
-    grid-template-columns: 1fr 1fr;
-  }
-  .social-media-container img {
-    height: 60%;
-  }
-
-  .footer-main-container small {
-    font-size: 0.5rem;
-  }
-}
-*/
-
-@media only screen and (orientation: portrait) {
+@media only screen and (max-width: 480px) {
   .header-links-container ul {
     font-size: 1.7rem;
     flex-direction: column;
@@ -479,9 +458,6 @@ nav {
     flex-direction: column;
   }
 
-  .projects-challenge-solution {
-    grid-template-columns: 1fr 1fr;
-  }
   .social-media-container img {
     height: 60%;
   }
