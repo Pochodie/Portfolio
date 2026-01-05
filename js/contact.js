@@ -1,3 +1,14 @@
+// To give possibility to send the form data if needed.
+class PersonData {
+    constructor(firstName, lastName, email, subject, message) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.subject = subject;
+        this.message = message;
+    }
+}
+
 // Get references to all form elements.
 const contactForm = document.getElementById('contactForm');
 const firstName = document.getElementById('firstName');
@@ -37,6 +48,9 @@ const messageMinimumCharacters = 20;
 let formData = null;
 let validateForm = false;
 
+// Takes the argument element to use only one function for validating first name and last name.
+/* All validation functions have the argument validateEmpty to give the possiblity to show an error on 
+   an empty input only when submit button is clicked */
 function validateName(element, validateEmpty = false) {
 
     if (validateEmpty && element.value.length === 0) return true;
@@ -132,6 +146,8 @@ function validateMessage(validateEmpty = false) {
     return minimumCharacters;
 }
 
+// Takes the element as argument to use only one function for all elements.
+// changeBorder makes it possible to choose whether the border-color should change or not.
 function showError(element, changeBorder = true) {
     const displayError = document.querySelector(`.form-main-container div:nth-child(${element.childIndex}) small`);
 
@@ -139,7 +155,7 @@ function showError(element, changeBorder = true) {
     if (changeBorder) element.classList.add('error');
 }
 
-
+// Same as above, but also gives the possibility to clear an error if the user erases text in an input.
 function clearError(element, validateEmpty = false, changeBorder = true) {
     const displayError = document.querySelector(`.form-main-container div:nth-child(${element.childIndex}) small`);
 
@@ -160,6 +176,7 @@ function clearError(element, validateEmpty = false, changeBorder = true) {
 
 }
 
+// Clears the form and gives the possibility to save the form data.
 function clearForm(saveData = false) {
 
     if (saveData) {
@@ -262,15 +279,3 @@ email.addEventListener('blur', (event) => blurValidateEmail(event.target));
 phoneNumber.addEventListener('blur', (event) => blurValidatePhoneNumber(event.target));
 message.addEventListener('blur', (event) => blurValidateMessage(event.target));
 message.addEventListener('input', function () { validateMessage() });
-
-
-
-class PersonData {
-    constructor(firstName, lastName, email, subject, message) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.subject = subject;
-        this.message = message;
-    }
-}

@@ -1,4 +1,5 @@
 class Project {
+    // Each project is assigned an id in increasing order.
     static counter = 1;
 
     constructor(title, description, category, technologies, image, link) {
@@ -15,10 +16,13 @@ class Project {
 
 const projects = [];
 
+// String constants for counter.
 const counterStringStart = 'Showing';
 const counterStringMiddle = 'of';
 const counterStringEnd = 'projects.'
 
+// References to HTML elements.
+const mainContainer = document.getElementById('project-cards-container');
 const filterButtonAll = document.getElementById('all');
 const filterButtonMusic = document.getElementById('music');
 const filterButtonWebDevelopment = document.getElementById('web-development');
@@ -28,13 +32,10 @@ const projectsCounter = document.getElementById('projects-counter');
 let previousSelectedFilterButton = filterButtonAll;
 let firstLoad = true;
 
-filterButtonAll.addEventListener('click', (event) => { generateCards(event.target); });
-filterButtonMusic.addEventListener('click', (event) => { generateCards(event.target); });
-filterButtonWebDevelopment.addEventListener('click', (event) => { generateCards(event.target); });
-filterButtonSchoolProjects.addEventListener('click', (event) => { generateCards(event.target); });
-
-const newProject = new Project('Guitar', 'Building a guitar', 'Music', ['Wood', 'Metal'], 'assets/images/projects/pianoconcerto_tn.jpg', 'https://example.com');
-const newProject2 = new Project('Game', 'Building a guitar', 'Music', ['Wood', 'Metal'], 'assets/images/projects/pianoconcerto_tn.jpg', 'https://example.com');
+filterButtonAll.addEventListener('click', (event) => { filterCards(event.target); });
+filterButtonMusic.addEventListener('click', (event) => { filterCards(event.target); });
+filterButtonWebDevelopment.addEventListener('click', (event) => { filterCards(event.target); });
+filterButtonSchoolProjects.addEventListener('click', (event) => { filterCards(event.target); });
 
 projects.push(new Project(
     'Portfolio Website',
@@ -117,8 +118,7 @@ projects.push(new Project(
     'https://example.com'
 ));
 
-
-
+// To highlight the active filter button.
 function selectActiveButton(element) {
     if (element != previousSelectedFilterButton) {
         previousSelectedFilterButton.classList.remove('active');
@@ -127,26 +127,14 @@ function selectActiveButton(element) {
     }
 }
 
-function generateCards(sender) {
-
-
-    if (sender === previousSelectedFilterButton && !firstLoad) return;
-
-    const mainContainer = document.getElementById('project-cards-container');
-    const category = sender.getAttribute('data-category');
-
-    if (mainContainer.children.length > 0) {
-        mainContainer.classList.remove('fadein');
-        projectsCounter.classList.remove('fadein');
-        mainContainer.classList.add('fadeout');
-        projectsCounter.classList.add('fadeout');
-    }
+// Dynamically creates HTML elements for each project card.
+function createCards(category) {
 
     let numberOfCards = 0;
 
+    // To make a smooth transition in 0.3s.
     setTimeout(() => {
         mainContainer.replaceChildren();
-
 
         projects.forEach(element => {
 
@@ -168,7 +156,7 @@ function generateCards(sender) {
                 const link = document.createElement('a');
                 link.setAttribute('href', element.link);
                 link.setAttribute('target', '_blank');
-                link.textContent = 'View Project'
+                link.textContent = 'View Project';
                 image.src = element.image;
                 image.style = 'width: 50%; object-fit: contain';
                 labelCategory.textContent = element.category;
@@ -180,20 +168,39 @@ function generateCards(sender) {
                 projectDiv.appendChild(title);
                 projectDiv.appendChild(labelCategory);
                 projectDiv.appendChild(description);
-
                 projectDiv.appendChild(link);
                 mainContainer.appendChild(projectDiv);
                 numberOfCards++;
             }
         });
 
+        // Update counter.
         projectsCounter.textContent = `${counterStringStart} ${numberOfCards} ${counterStringMiddle} ${projects.length} ${counterStringEnd}`;
 
-    }, firstLoad ? 0 : 250);
+    }, firstLoad ? 0 : 300);
+
+}
+
+function filterCards(sender) {
+
+    // To not filter more than once if a filter button is clicked.
+    if (sender === previousSelectedFilterButton && !firstLoad) return;
+
+    const category = sender.getAttribute('data-category');
+
+    // To fade out project cards if they have been loaded at least once.
+    if (!firstLoad) {
+        mainContainer.classList.remove('fadein');
+        projectsCounter.classList.remove('fadein');
+        mainContainer.classList.add('fadeout');
+        projectsCounter.classList.add('fadeout');
+    }
+
+    createCards(category);
 
     firstLoad = false;
     selectActiveButton(sender);
 }
 
-generateCards(filterButtonAll);
+filterCards(filterButtonAll);
 
