@@ -138,40 +138,43 @@ function createCards(category) {
 
         projects.forEach(element => {
 
-            if (element.category === category || category === 'All') {
+            if (numberOfCards < 6)
+                if (element.category === category || category === 'All') {
 
-                const projectDiv = document.createElement('div');
-                if (!firstLoad) {
-                    mainContainer.classList.remove('fadeout');
-                    projectsCounter.classList.remove('fadeout');
-                    mainContainer.classList.add('fadein');
-                    projectsCounter.classList.add('fadein');
+                    const projectDiv = document.createElement('div');
+                    if (!firstLoad) {
+                        mainContainer.classList.remove('fadeout');
+                        projectsCounter.classList.remove('fadeout');
+                        mainContainer.classList.add('fadein');
+                        projectsCounter.classList.add('fadein');
+                    }
+
+                    projectDiv.className = 'project-card';
+                    const image = document.createElement('img');
+                    const title = document.createElement('h3');
+                    const description = document.createElement('p');
+                    const labelCategory = document.createElement('label');
+                    const link = document.createElement('a');
+                    link.setAttribute('href', element.link);
+                    link.setAttribute('target', '_blank');
+                    link.textContent = 'View Project';
+                    image.src = element.image;
+                    image.style = 'width: 50%; object-fit: contain';
+                    labelCategory.textContent = element.category;
+
+                    description.textContent = element.description;
+                    title.textContent = element.title;
+
+                    projectDiv.appendChild(image);
+                    projectDiv.appendChild(title);
+                    projectDiv.appendChild(labelCategory);
+                    projectDiv.appendChild(description);
+                    projectDiv.appendChild(link);
+                    mainContainer.appendChild(projectDiv);
+                    numberOfCards++;
+
+
                 }
-
-                projectDiv.className = 'project-card';
-                const image = document.createElement('img');
-                const title = document.createElement('h3');
-                const description = document.createElement('p');
-                const labelCategory = document.createElement('label');
-                const link = document.createElement('a');
-                link.setAttribute('href', element.link);
-                link.setAttribute('target', '_blank');
-                link.textContent = 'View Project';
-                image.src = element.image;
-                image.style = 'width: 50%; object-fit: contain';
-                labelCategory.textContent = element.category;
-
-                description.textContent = element.description;
-                title.textContent = element.title;
-
-                projectDiv.appendChild(image);
-                projectDiv.appendChild(title);
-                projectDiv.appendChild(labelCategory);
-                projectDiv.appendChild(description);
-                projectDiv.appendChild(link);
-                mainContainer.appendChild(projectDiv);
-                numberOfCards++;
-            }
         });
 
         // Update counter.
